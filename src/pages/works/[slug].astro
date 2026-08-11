@@ -15,7 +15,7 @@ export function getStaticPaths() {
 
 const { work, prev, next } = Astro.props;
 const a = site.artist;
-const sectionLabel = { paintings: 'Paintings', prints: 'Prints', studies: 'Studies' }[work.section];
+const sectionLabel = { paintings: 'Paintings', prints: 'Prints', studies: 'Studies', portraits: 'Portraits' }[work.section];
 const statusLabel = { available: 'Available', sold: 'Sold', nfs: 'Not for sale' }[work.status];
 ---
 

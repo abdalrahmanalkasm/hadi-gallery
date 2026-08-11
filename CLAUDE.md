@@ -78,7 +78,7 @@ Fields on a work:
 |---|---|
 | `slug` | URL segment, lowercase, hyphenated, never change after launch |
 | `cat` | catalogue number, two digits, sequential |
-| `section` | `paintings` \| `prints` \| `studies` — decides where it appears |
+| `section` | `paintings` \| `prints` \| `studies` \| `portraits` — decides where it appears |
 | `code` | plate code, e.g. `OIL/CNV`, `INK/CARD`, `SCR/PRT`, `ETCH/CU` |
 | `status` | `available` \| `sold` \| `nfs` |
 | `edition` | prints only |
@@ -111,9 +111,15 @@ About        ochre
 Paintings    paper
 Prints       ink
 Studies      ochre-pale
+Portraits    ochre
 Exhibitions  paper
 Footer       ink
 ```
+
+`Portraits` was added after launch planning, at the client's request. It sits
+last of the work sections so that no existing section's ground had to move, and
+takes `ochre` because that is the only ground that neither of its neighbours
+(`ochre-pale` above, `paper` below) already uses.
 
 Grounds are applied with `.g-ink`, `.g-paper`, `.g-ochre`, `.g-pale`. Each also
 sets `.quiet` and `.accent` colours so contrast stays correct automatically. Use

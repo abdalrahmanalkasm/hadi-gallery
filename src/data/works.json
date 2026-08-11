@@ -1,335 +1,1226 @@
 {
-  "_comment": "Add a new artwork by copying one object and changing the values. Keys starting with _ are only used to generate temporary placeholder images and can be deleted once real photographs exist. 'section' must be one of: paintings | prints | studies. 'status' must be one of: available | sold | nfs.",
+  "_comment": "Add a new artwork by copying one object and changing the values. 'section' must be one of: paintings | prints | studies | portraits. 'status' must be one of: available | sold | nfs. IMPORTANT: every entry carrying a '_pending' key still has placeholder values for the fields it lists — real titles, years, dimensions and availability must come from the artist before this site is published. Dimensions drive the scale of every work on the page, so uniform placeholder sizes make all works render at the same width.",
   "works": [
     {
-      "slug": "sitter-late-afternoon",
+      "slug": "painting-01",
       "cat": "01",
-      "title": "Sitter, Late Afternoon",
+      "title": "Painting 01",
+      "year": 2025,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-01.jpg",
+      "details": [
+        "painting-01-d1.jpg",
+        "painting-01-d2.jpg",
+        "painting-01-d3.jpg",
+        "painting-01-d4.jpg",
+        "painting-01-d5.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-02",
+      "cat": "02",
+      "title": "Painting 02",
+      "year": 2025,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-02.jpg",
+      "details": [
+        "painting-02-d1.jpg",
+        "painting-02-d2.jpg",
+        "painting-02-d3.jpg",
+        "painting-02-d4.jpg",
+        "painting-02-d5.jpg",
+        "painting-02-d6.jpg",
+        "painting-02-d7.jpg",
+        "painting-02-d8.jpg",
+        "painting-02-d9.jpg",
+        "painting-02-d10.jpg",
+        "painting-02-d11.jpg",
+        "painting-02-d12.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-03",
+      "cat": "03",
+      "title": "Painting 03",
+      "year": 2025,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-03.jpg",
+      "details": [
+        "painting-03-d1.jpg",
+        "painting-03-d2.jpg",
+        "painting-03-d3.jpg",
+        "painting-03-d4.jpg",
+        "painting-03-d5.jpg",
+        "painting-03-d6.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-04",
+      "cat": "04",
+      "title": "Painting 04",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "120 × 90 cm",
+      "dimensions": "100 × 80 cm",
       "status": "available",
-      "image": "sitter-late-afternoon.jpg",
-      "details": ["sitter-late-afternoon-d1.jpg", "sitter-late-afternoon-d2.jpg", "sitter-late-afternoon-d3.jpg"],
-      "note": "Painted over four sittings in the same two hours of the day, so the light never had to be invented. The face was rebuilt three times; the earlier attempts are still under the surface and show through at the jaw.",
-      "_ramp": "ochre",
-      "_ar": 0.78,
-      "_seed": 11
+      "image": "painting-04.jpg",
+      "details": [
+        "painting-04-d1.jpg",
+        "painting-04-d2.jpg",
+        "painting-04-d3.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "two-chairs",
-      "cat": "02",
-      "title": "Two Chairs",
+      "slug": "painting-05",
+      "cat": "05",
+      "title": "Painting 05",
+      "year": 2025,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-05.jpg",
+      "details": [
+        "painting-05-d1.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-06",
+      "cat": "06",
+      "title": "Painting 06",
+      "year": 2026,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-06.jpg",
+      "details": [
+        "painting-06-d1.jpg",
+        "painting-06-d2.jpg",
+        "painting-06-d3.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-07",
+      "cat": "07",
+      "title": "Painting 07",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-07.jpg",
+      "details": [
+        "painting-07-d1.jpg",
+        "painting-07-d2.jpg",
+        "painting-07-d3.jpg",
+        "painting-07-d4.jpg",
+        "painting-07-d5.jpg",
+        "painting-07-d6.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-08",
+      "cat": "08",
+      "title": "Painting 08",
+      "year": 2025,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-08.jpg",
+      "details": [
+        "painting-08-d1.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-09",
+      "cat": "09",
+      "title": "Painting 09",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-09.jpg",
+      "details": [
+        "painting-09-d1.jpg",
+        "painting-09-d2.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-10",
+      "cat": "10",
+      "title": "Painting 10",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-10.jpg",
+      "details": [
+        "painting-10-d1.jpg",
+        "painting-10-d2.jpg",
+        "painting-10-d3.jpg",
+        "painting-10-d4.jpg",
+        "painting-10-d5.jpg",
+        "painting-10-d6.jpg",
+        "painting-10-d7.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-11",
+      "cat": "11",
+      "title": "Painting 11",
+      "year": 2025,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-11.jpg",
+      "details": [
+        "painting-11-d1.jpg",
+        "painting-11-d2.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-12",
+      "cat": "12",
+      "title": "Painting 12",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-12.jpg",
+      "details": [
+        "painting-12-d1.jpg",
+        "painting-12-d2.jpg",
+        "painting-12-d3.jpg",
+        "painting-12-d4.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-13",
+      "cat": "13",
+      "title": "Painting 13",
+      "year": 2025,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-13.jpg",
+      "details": [
+        "painting-13-d1.jpg",
+        "painting-13-d2.jpg",
+        "painting-13-d3.jpg",
+        "painting-13-d4.jpg",
+        "painting-13-d5.jpg",
+        "painting-13-d6.jpg",
+        "painting-13-d7.jpg",
+        "painting-13-d8.jpg",
+        "painting-13-d9.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-14",
+      "cat": "14",
+      "title": "Painting 14",
+      "year": 2026,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-14.jpg",
+      "details": [
+        "painting-14-d1.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-15",
+      "cat": "15",
+      "title": "Painting 15",
+      "year": 2026,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-15.jpg",
+      "details": [
+        "painting-15-d1.jpg",
+        "painting-15-d2.jpg",
+        "painting-15-d3.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-16",
+      "cat": "16",
+      "title": "Painting 16",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-16.jpg",
+      "details": [
+        "painting-16-d1.jpg",
+        "painting-16-d2.jpg",
+        "painting-16-d3.jpg",
+        "painting-16-d4.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-17",
+      "cat": "17",
+      "title": "Painting 17",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-17.jpg",
+      "details": [
+        "painting-17-d1.jpg",
+        "painting-17-d2.jpg",
+        "painting-17-d3.jpg",
+        "painting-17-d4.jpg",
+        "painting-17-d5.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-18",
+      "cat": "18",
+      "title": "Painting 18",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-18.jpg",
+      "details": [
+        "painting-18-d1.jpg",
+        "painting-18-d2.jpg",
+        "painting-18-d3.jpg",
+        "painting-18-d4.jpg",
+        "painting-18-d5.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-19",
+      "cat": "19",
+      "title": "Painting 19",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-19.jpg",
+      "details": [
+        "painting-19-d1.jpg",
+        "painting-19-d2.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-20",
+      "cat": "20",
+      "title": "Painting 20",
       "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "100 × 80 cm",
-      "status": "sold",
-      "image": "two-chairs.jpg",
-      "details": [],
-      "note": "An empty interior that kept refusing to stay empty. The second chair was added last and changed the subject of the painting entirely.",
-      "_ramp": "ink",
-      "_ar": 0.8,
-      "_seed": 12
+      "status": "available",
+      "image": "painting-20.jpg",
+      "details": [
+        "painting-20-d1.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "the-long-wall",
-      "cat": "03",
-      "title": "The Long Wall",
+      "slug": "painting-21",
+      "cat": "21",
+      "title": "Painting 21",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "150 × 110 cm",
+      "dimensions": "100 × 80 cm",
       "status": "available",
-      "image": "the-long-wall.jpg",
-      "details": ["the-long-wall-d1.jpg", "the-long-wall-d2.jpg"],
-      "note": "The largest canvas in the studio, worked flat on the floor. Thin washes first, then heavy paint only where the light lands.",
-      "_ramp": "ochre",
-      "_ar": 1.36,
-      "_seed": 13
+      "image": "painting-21.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "my-mothers-hands",
-      "cat": "04",
-      "title": "My Mother's Hands",
+      "slug": "painting-22",
+      "cat": "22",
+      "title": "Painting 22",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-22.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-23",
+      "cat": "23",
+      "title": "Painting 23",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-23.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-24",
+      "cat": "24",
+      "title": "Painting 24",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-24.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-25",
+      "cat": "25",
+      "title": "Painting 25",
+      "year": 2024,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-25.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "painting-26",
+      "cat": "26",
+      "title": "Painting 26",
+      "year": 2023,
+      "section": "paintings",
+      "medium": "Oil on canvas",
+      "code": "OIL/CNV",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "painting-26.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "etching-01",
+      "cat": "27",
+      "title": "Etching 01",
       "year": 2022,
-      "section": "paintings",
-      "medium": "Oil on canvas",
-      "code": "OIL/CNV",
-      "dimensions": "90 × 70 cm",
-      "status": "sold",
-      "image": "my-mothers-hands.jpg",
+      "section": "prints",
+      "medium": "Etching on paper",
+      "code": "ETCH/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "etching-01.jpg",
       "details": [],
-      "note": "Begun from an ink study made in a hospital waiting room. The drawing is included in Studies.",
-      "_ramp": "ink",
-      "_ar": 0.78,
-      "_seed": 14
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "doorway-second-version",
-      "cat": "05",
-      "title": "Doorway, Second Version",
+      "slug": "etching-02",
+      "cat": "28",
+      "title": "Etching 02",
+      "year": 2022,
+      "section": "prints",
+      "medium": "Etching on paper",
+      "code": "ETCH/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "etching-02.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "etching-03",
+      "cat": "29",
+      "title": "Etching 03",
+      "year": 2026,
+      "section": "prints",
+      "medium": "Etching on paper",
+      "code": "ETCH/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "etching-03.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "charcoal-pencil",
+      "cat": "30",
+      "title": "Charcoal Pencil",
       "year": 2023,
-      "section": "paintings",
-      "medium": "Oil on canvas",
-      "code": "OIL/CNV",
-      "dimensions": "110 × 85 cm",
+      "section": "studies",
+      "medium": "Charcoal and graphite on paper",
+      "code": "CHR/PPR",
+      "dimensions": "100 × 80 cm",
       "status": "available",
-      "image": "doorway-second-version.jpg",
-      "details": ["doorway-second-version-d1.jpg", "doorway-second-version-d2.jpg"],
-      "note": "The first version was scraped back and painted over. What survives of it is the warm ground that reads through the door frame.",
-      "_ramp": "ochre",
-      "_ar": 0.82,
-      "_seed": 15
+      "image": "charcoal-pencil.jpg",
+      "details": [
+        "charcoal-pencil-d1.jpg",
+        "charcoal-pencil-d2.jpg",
+        "charcoal-pencil-d3.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "nightwork",
-      "cat": "06",
-      "title": "Nightwork",
-      "year": 2025,
-      "section": "paintings",
-      "medium": "Oil on canvas",
-      "code": "OIL/CNV",
-      "dimensions": "70 × 60 cm",
+      "slug": "ink-black-01",
+      "cat": "31",
+      "title": "Ink Black 01",
+      "year": 2026,
+      "section": "studies",
+      "medium": "Chinese ink on card",
+      "code": "INK/CARD",
+      "dimensions": "100 × 80 cm",
       "status": "available",
-      "image": "nightwork.jpg",
+      "image": "ink-black-01.jpg",
       "details": [],
-      "note": "Painted entirely under artificial light, which is why the colour shifts when you see it by day.",
-      "_ramp": "cool",
-      "_ar": 0.86,
-      "_seed": 16
-    },
-
-    {
-      "slug": "plate-i-standing-figure",
-      "cat": "07",
-      "title": "Plate I: Standing Figure",
-      "year": 2023,
-      "section": "prints",
-      "medium": "Copper plate etching on cotton paper",
-      "code": "ETCH/CU",
-      "dimensions": "25 × 20 cm",
-      "edition": "Edition of 10",
-      "status": "available",
-      "image": "plate-i-standing-figure.jpg",
-      "details": ["plate-i-standing-figure-d1.jpg"],
-      "note": "Hard ground, three acid baths. The plate was left slightly under-bitten so the line stays open.",
-      "_ramp": "ink",
-      "_ar": 0.8,
-      "_seed": 21
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "plate-ii-turned-away",
-      "cat": "08",
-      "title": "Plate II: Turned Away",
-      "year": 2023,
-      "section": "prints",
-      "medium": "Copper plate etching on cotton paper",
-      "code": "ETCH/CU",
-      "dimensions": "25 × 20 cm",
-      "edition": "Edition of 10",
-      "status": "available",
-      "image": "plate-ii-turned-away.jpg",
-      "details": [],
-      "note": "Companion to Plate I, pulled from the same session.",
-      "_ramp": "ink",
-      "_ar": 0.8,
-      "_seed": 22
-    },
-    {
-      "slug": "zinc-ground",
-      "cat": "09",
-      "title": "Zinc Ground",
-      "year": 2024,
-      "section": "prints",
-      "medium": "Zinc plate etching with aquatint",
-      "code": "ETCH/ZN",
-      "dimensions": "30 × 24 cm",
-      "edition": "Edition of 8",
-      "status": "sold",
-      "image": "zinc-ground.jpg",
-      "details": [],
-      "note": "Aquatint laid in two stages to hold the deep flat black without closing the mid-tones.",
-      "_ramp": "cool",
-      "_ar": 0.82,
-      "_seed": 23
-    },
-    {
-      "slug": "registration",
-      "cat": "10",
-      "title": "Registration",
-      "year": 2025,
-      "section": "prints",
-      "medium": "Four-colour silkscreen on paper",
-      "code": "SCR/PRT",
-      "dimensions": "50 × 40 cm",
-      "edition": "Edition of 20",
-      "status": "available",
-      "image": "registration.jpg",
-      "details": ["registration-d1.jpg", "registration-d2.jpg"],
-      "note": "Four passes, deliberately misregistered by two millimetres on the final pull. The slip is the image.",
-      "_ramp": "ochre",
-      "_ar": 0.8,
-      "_seed": 24
-    },
-    {
-      "slug": "four-passes",
-      "cat": "11",
-      "title": "Four Passes",
-      "year": 2024,
-      "section": "prints",
-      "medium": "Silkscreen on paper",
-      "code": "SCR/PRT",
-      "dimensions": "40 × 30 cm",
-      "edition": "Edition of 15",
-      "status": "available",
-      "image": "four-passes.jpg",
-      "details": [],
-      "note": "Each colour was mixed to sit one step darker than the last, so the image builds rather than layers.",
-      "_ramp": "ochre",
-      "_ar": 0.78,
-      "_seed": 25
-    },
-
-    {
-      "slug": "ink-study-falling-figure",
-      "cat": "12",
-      "title": "Ink Study, Falling Figure",
+      "slug": "ink-black-02",
+      "cat": "32",
+      "title": "Ink Black 02",
       "year": 2024,
       "section": "studies",
       "medium": "Chinese ink on card",
       "code": "INK/CARD",
-      "dimensions": "30 × 21 cm",
-      "status": "nfs",
-      "image": "ink-study-falling-figure.jpg",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-black-02.jpg",
       "details": [],
       "note": "",
-      "_ramp": "paper",
-      "_ar": 0.72,
-      "_seed": 31
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "ink-study-seated",
-      "cat": "13",
-      "title": "Ink Study, Seated",
-      "year": 2024,
+      "slug": "ink-black-03",
+      "cat": "33",
+      "title": "Ink Black 03",
+      "year": 2023,
       "section": "studies",
       "medium": "Chinese ink on card",
       "code": "INK/CARD",
-      "dimensions": "25 × 18 cm",
-      "status": "nfs",
-      "image": "ink-study-seated.jpg",
-      "details": [],
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-black-03.jpg",
+      "details": [
+        "ink-black-03-d1.jpg"
+      ],
       "note": "",
-      "_ramp": "paper",
-      "_ar": 0.76,
-      "_seed": 32
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "hand-open",
-      "cat": "14",
-      "title": "Hand, Open",
+      "slug": "ink-black-04",
+      "cat": "34",
+      "title": "Ink Black 04",
       "year": 2023,
       "section": "studies",
-      "medium": "Graphite on paper",
-      "code": "GRA/PPR",
-      "dimensions": "21 × 15 cm",
-      "status": "nfs",
-      "image": "hand-open.jpg",
-      "details": [],
+      "medium": "Chinese ink on card",
+      "code": "INK/CARD",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-black-04.jpg",
+      "details": [
+        "ink-black-04-d1.jpg",
+        "ink-black-04-d2.jpg"
+      ],
       "note": "",
-      "_ramp": "paper",
-      "_ar": 0.74,
-      "_seed": 33
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "head-three-quarters",
-      "cat": "15",
-      "title": "Head, Three Quarters",
+      "slug": "ink-black-05",
+      "cat": "35",
+      "title": "Ink Black 05",
       "year": 2023,
       "section": "studies",
-      "medium": "Graphite on paper",
-      "code": "GRA/PPR",
-      "dimensions": "24 × 18 cm",
-      "status": "nfs",
-      "image": "head-three-quarters.jpg",
-      "details": [],
+      "medium": "Chinese ink on card",
+      "code": "INK/CARD",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-black-05.jpg",
+      "details": [
+        "ink-black-05-d1.jpg"
+      ],
       "note": "",
-      "_ramp": "paper",
-      "_ar": 0.76,
-      "_seed": 34
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "morning-light-kitchen",
-      "cat": "16",
-      "title": "Morning Light, Kitchen",
-      "year": 2024,
-      "section": "studies",
-      "medium": "Watercolour on paper",
-      "code": "WC/PPR",
-      "dimensions": "18 × 24 cm",
-      "status": "nfs",
-      "image": "morning-light-kitchen.jpg",
-      "details": [],
-      "note": "",
-      "_ramp": "ochre",
-      "_ar": 1.3,
-      "_seed": 35
-    },
-    {
-      "slug": "portrait-sketch-in-wash",
-      "cat": "17",
-      "title": "Portrait Sketch in Wash",
+      "slug": "ink-black-06",
+      "cat": "36",
+      "title": "Ink Black 06",
       "year": 2023,
       "section": "studies",
-      "medium": "Watercolour on paper",
-      "code": "WC/PPR",
-      "dimensions": "20 × 20 cm",
-      "status": "nfs",
-      "image": "portrait-sketch-in-wash.jpg",
-      "details": [],
+      "medium": "Chinese ink on card",
+      "code": "INK/CARD",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-black-06.jpg",
+      "details": [
+        "ink-black-06-d1.jpg"
+      ],
       "note": "",
-      "_ramp": "ochre",
-      "_ar": 1.0,
-      "_seed": 36
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "oil-sketch-standing",
-      "cat": "18",
-      "title": "Oil Sketch, Standing",
+      "slug": "ink-blue-01",
+      "cat": "37",
+      "title": "Ink Blue 01",
       "year": 2022,
+      "section": "studies",
+      "medium": "Blue ink on card",
+      "code": "INK/CARD",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-blue-01.jpg",
+      "details": [
+        "ink-blue-01-d1.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "ink-blue-02",
+      "cat": "38",
+      "title": "Ink Blue 02",
+      "year": 2022,
+      "section": "studies",
+      "medium": "Blue ink on card",
+      "code": "INK/CARD",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-blue-02.jpg",
+      "details": [
+        "ink-blue-02-d1.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "ink-blue-03",
+      "cat": "39",
+      "title": "Ink Blue 03",
+      "year": 2022,
+      "section": "studies",
+      "medium": "Blue ink on card",
+      "code": "INK/CARD",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-blue-03.jpg",
+      "details": [
+        "ink-blue-03-d1.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "ink-blue-04",
+      "cat": "40",
+      "title": "Ink Blue 04",
+      "year": 2026,
+      "section": "studies",
+      "medium": "Blue ink on card",
+      "code": "INK/CARD",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-blue-04.jpg",
+      "details": [
+        "ink-blue-04-d1.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "ink-blue-05",
+      "cat": "41",
+      "title": "Ink Blue 05",
+      "year": 2023,
+      "section": "studies",
+      "medium": "Blue ink on card",
+      "code": "INK/CARD",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "ink-blue-05.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "oil-sketch-01",
+      "cat": "42",
+      "title": "Oil Sketch 01",
+      "year": 2026,
       "section": "studies",
       "medium": "Oil on prepared card",
       "code": "OIL/PPR",
-      "dimensions": "20 × 15 cm",
-      "status": "nfs",
-      "image": "oil-sketch-standing.jpg",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "oil-sketch-01.jpg",
       "details": [],
       "note": "",
-      "_ramp": "ink",
-      "_ar": 0.75,
-      "_seed": 37
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
     },
     {
-      "slug": "ink-study-crowd",
-      "cat": "19",
-      "title": "Ink Study, Crowd",
-      "year": 2025,
+      "slug": "oil-sketch-02",
+      "cat": "43",
+      "title": "Oil Sketch 02",
+      "year": 2026,
       "section": "studies",
-      "medium": "Chinese ink on card",
-      "code": "INK/CARD",
-      "dimensions": "30 × 21 cm",
-      "status": "nfs",
-      "image": "ink-study-crowd.jpg",
+      "medium": "Oil on prepared card",
+      "code": "OIL/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "oil-sketch-02.jpg",
       "details": [],
       "note": "",
-      "_ramp": "paper",
-      "_ar": 1.4,
-      "_seed": 38
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "pencil-01",
+      "cat": "44",
+      "title": "Pencil 01",
+      "year": 2026,
+      "section": "studies",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "pencil-01.jpg",
+      "details": [
+        "pencil-01-d1.jpg"
+      ],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "pencil-02",
+      "cat": "45",
+      "title": "Pencil 02",
+      "year": 2023,
+      "section": "studies",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "pencil-02.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "pencil-03",
+      "cat": "46",
+      "title": "Pencil 03",
+      "year": 2026,
+      "section": "studies",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "pencil-03.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "pencil-04",
+      "cat": "47",
+      "title": "Pencil 04",
+      "year": 2025,
+      "section": "studies",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "pencil-04.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "pencil-05",
+      "cat": "48",
+      "title": "Pencil 05",
+      "year": 2026,
+      "section": "studies",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "pencil-05.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "pencil-06",
+      "cat": "49",
+      "title": "Pencil 06",
+      "year": 2024,
+      "section": "studies",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "pencil-06.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "pencil-07",
+      "cat": "50",
+      "title": "Pencil 07",
+      "year": 2023,
+      "section": "studies",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "pencil-07.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "pencil-08",
+      "cat": "51",
+      "title": "Pencil 08",
+      "year": 2023,
+      "section": "studies",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "pencil-08.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status",
+        "year"
+      ]
+    },
+    {
+      "slug": "portrait-01",
+      "cat": "52",
+      "title": "Portrait 01",
+      "year": 2022,
+      "section": "portraits",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "portrait-01.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status"
+      ]
+    },
+    {
+      "slug": "portrait-02",
+      "cat": "53",
+      "title": "Portrait 02",
+      "year": 2020,
+      "section": "portraits",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "portrait-02.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status"
+      ]
+    },
+    {
+      "slug": "portrait-03",
+      "cat": "54",
+      "title": "Portrait 03",
+      "year": 2023,
+      "section": "portraits",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "portrait-03.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status"
+      ]
+    },
+    {
+      "slug": "portrait-04",
+      "cat": "55",
+      "title": "Portrait 04",
+      "year": 2024,
+      "section": "portraits",
+      "medium": "Graphite on paper",
+      "code": "GRA/PPR",
+      "dimensions": "100 × 80 cm",
+      "status": "available",
+      "image": "portrait-04.jpg",
+      "details": [],
+      "note": "",
+      "_pending": [
+        "title",
+        "dimensions",
+        "status"
+      ]
     }
   ]
 }
