@@ -5,7 +5,7 @@ import Nav from '../components/Nav.astro';
 
 const { title, description } = Astro.props;
 const a = site.artist;
-const pageTitle = title ? `${title} — ${a.name}` : `${a.name} — ${a.discipline}`;
+const pageTitle = title ? `${title} — ${a.name}` : `${a.name} — ${site.siteName}`;
 const desc = description ?? `${a.discipline} in ${a.location}. ${a.heroLine}`;
 ---
 <!DOCTYPE html>

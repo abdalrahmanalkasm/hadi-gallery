@@ -1,24 +1,27 @@
 {
   "_comment": "All non-artwork text lives here. Replace every value in square brackets with real content.",
+  "siteName": "Hadi Gallery",
   "artist": {
-    "name": "[Artist Name]",
-    "shortName": "[Surname]",
+    "name": "Hadi Alkawkgi",
+    "shortName": "Alkawkgi",
     "discipline": "Painter and printmaker",
-    "location": "[City]",
-    "heroLine": "Oil on canvas, Chinese ink on card, silkscreen and copper plate etching.",
+    "location": "Damascus",
+    "heroLine": "Oil on canvas, ink on card, graphite and charcoal, etching on paper.",
     "portraitHero": "portrait-hero.jpg",
-    "portraitHeroCaption": "In the studio, [City], 2025",
+    "portraitHeroCaption": "In the studio, Damascus, 2025",
     "portraitStudio": "portrait-studio.jpg",
     "statement": "I paint the same few rooms and the same few people until they stop being familiar.",
     "bio": [
-      "[Artist Name] was born in [City] in [year] and graduated from [Institution] with a degree in Fine Arts in [year].",
+      "Hadi Alkawkgi was born in Damascus in 2000 and graduated from Damascus University of Fine Arts in 2023.",
       "The work moves between three materials that keep correcting each other: oil on canvas for the long paintings, Chinese ink on card for the fast studies that precede them, and printmaking — silkscreen and copper plate etching — for images that only make sense in multiples.",
-      "[One paragraph on recurring subjects, influences, or what the work is asking. Written in the artist's own voice.]"
+      "His graduation project, 'In Their Looks, History,' painted the older people around him — his father among them — and himself, in a realistic style close to portraiture from life. It set out to hold feelings usually left unspoken: fear, pain, sadness.",
+      "Hadi works from his own feelings and close attention to what's in front of him — how light falls on an object, the shift between a lit room and a dim one, small differences in material and technique, colour built in very small steps so it reads as almost one hue. He's drawn to darkness as a subject worth looking at closely, not away from."
     ],
     "cv": "/cv.pdf",
-    "email": "[name]@example.com",
-    "instagram": "https://instagram.com/[handle]",
-    "instagramHandle": "@[handle]"
+    "email": "hadi.kawkgi@gmail.com",
+    "phone": "+963 982 652 497",
+    "instagram": "https://instagram.com/hadi_art.8.1",
+    "instagramHandle": "@hadi_art.8.1"
   },
   "exhibitions": [
     {

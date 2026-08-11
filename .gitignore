@@ -4,3 +4,7 @@ dist/
 .DS_Store
 photos-raw/*
 !photos-raw/README.txt
+
+# Original camera files, sorted by work. Never published, never modified —
+# same role as photos-raw/. ~900 MB, so it must stay out of the repo.
+real paintings/

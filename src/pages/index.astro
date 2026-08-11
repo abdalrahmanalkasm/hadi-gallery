@@ -10,6 +10,7 @@ const works = data.works;
 const paintings = works.filter((w) => w.section === 'paintings');
 const prints = works.filter((w) => w.section === 'prints');
 const studies = works.filter((w) => w.section === 'studies');
+const portraits = works.filter((w) => w.section === 'portraits');
 const bySlug = Object.fromEntries(works.map((w) => [w.slug, w]));
 
 const largest = Math.max(...paintings.map((w) => widthCm(w.dimensions) || 0));
@@ -75,8 +76,8 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
     <div class="wrap">
       <div class="opener rv">
         <span class="data">Prints &nbsp;·&nbsp; {prints.length}</span>
-        <h2 class="t-section">Silkscreen and etching</h2>
-        <p class="t-body quiet">Printed in editions. Each sheet is pulled by hand, so no two are identical.</p>
+        <h2 class="t-section">Etching</h2>
+        <p class="t-body quiet">Each sheet is pulled by hand, so no two are identical.</p>
       </div>
       <div class="works-flow">
         {prints.map((w) => (
@@ -93,7 +94,7 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
     <div class="wrap">
       <div class="opener rv">
         <span class="data">Studies &nbsp;·&nbsp; {studies.length}</span>
-        <h2 class="t-section">Ink, graphite, watercolour</h2>
+        <h2 class="t-section">Ink, graphite, charcoal</h2>
         <p class="t-body quiet">Made quickly, at the size of a hand. Several of these preceded the paintings above.</p>
       </div>
       <div class="works-flow">
@@ -102,6 +103,20 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
             <Work work={w} />
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTRAITS -->
+  <section class="band g-ochre" id="portraits">
+    <div class="wrap">
+      <div class="opener rv">
+        <span class="data">Portraits &nbsp;·&nbsp; {portraits.length}</span>
+        <h2 class="t-section">Faces</h2>
+        <p class="t-body quiet">Graphite on paper, worked up in close detail. Each is signed and dated on the sheet.</p>
+      </div>
+      <div class="works">
+        {portraits.map((w) => <Work work={w} />)}
       </div>
     </div>
   </section>
@@ -168,6 +183,7 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
         </div>
         <div class="foot-links t-small rv">
           <a href={a.instagram} rel="me noopener" target="_blank">Instagram, {a.instagramHandle}</a>
+          <a href={`tel:${a.phone.replace(/\s+/g, '')}`}>{a.phone}</a>
           <a href={a.cv} download>Curriculum vitae, PDF</a>
           <a href={`mailto:${a.email}`}>Email</a>
         </div>
