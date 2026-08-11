@@ -1,0 +1,16 @@
+---
+/**
+ * THE MEASURE — the signature element.
+ * A rule as wide as the image that follows it, with end ticks and the
+ * real width of the work in centimetres. See design-brief.md § Direction.
+ */
+import { widthCm } from '../lib/scale.js';
+const { dimensions } = Astro.props;
+const cm = widthCm(dimensions);
+---
+<div class="measure" aria-hidden="true">
+  <div class="measure-bar"></div>
+  <div class="measure-tick">
+    <span class="measure-label data">{cm ? `${cm} cm` : ''}</span>
+  </div>
+</div>

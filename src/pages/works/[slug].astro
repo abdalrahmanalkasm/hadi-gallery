@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import Measure from '../../components/Measure.astro';
+import site from '../../data/site.json';
+import data from '../../data/works.json';
+import { scaleStyle } from '../../lib/scale.js';
+
+export function getStaticPaths() {
+  const works = data.works;
+  return works.map((work, i) => ({
+    params: { slug: work.slug },
+    props: { work, prev: works[(i - 1 + works.length) % works.length], next: works[(i + 1) % works.length] }
+  }));
+}
+
+const { work, prev, next } = Astro.props;
+const a = site.artist;
+const sectionLabel = { paintings: 'Paintings', prints: 'Prints', studies: 'Studies' }[work.section];
+const statusLabel = { available: 'Available', sold: 'Sold', nfs: 'Not for sale' }[work.status];
+---
+
+<Base
+  title={`${work.title}, ${work.year}`}
+  description={`${work.title}, ${work.year}. ${work.medium}, ${work.dimensions}. By ${a.name}.`}
+>
+  <article class="band wp g-paper">
+    <div class="wrap">
+      <a class="wp-back data accent" href={`/#${work.section}`}>Back to {sectionLabel}</a>
+
+      <div class="wp-lead">
+        <figure style="margin:0" class="rv">
+          <div style={scaleStyle(work.dimensions)}>
+            <Measure dimensions={work.dimensions} />
+          </div>
+          <img src={`/images/${work.image}`} alt={`${work.title}, ${work.year}`} fetchpriority="high" />
+        </figure>
+
+        <div class="rv">
+          <p class="data quiet">Cat. {work.cat} &nbsp;·&nbsp; {work.code}</p>
+          <h1 class="t-title" style="margin-top:8px">{work.title}</h1>
+
+          <dl class="wp-facts t-small">
+            <div class="wp-fact"><dt class="data">Year</dt><dd>{work.year}</dd></div>
+            <div class="wp-fact"><dt class="data">Medium</dt><dd>{work.medium}</dd></div>
+            <div class="wp-fact"><dt class="data">Size</dt><dd>{work.dimensions}</dd></div>
+            {work.edition && <div class="wp-fact"><dt class="data">Edition</dt><dd>{work.edition}</dd></div>}
+            <div class="wp-fact"><dt class="data">Status</dt><dd>{statusLabel}</dd></div>
+          </dl>
+
+          {work.note && <p class="wp-note t-body">{work.note}</p>}
+
+          {work.status === 'available' && (
+            <a class="cta" href={`mailto:${a.email}?subject=${encodeURIComponent(`Enquiry: ${work.title}, ${work.year}`)}`}>
+              Enquire about this work
+            </a>
+          )}
+        </div>
+      </div>
+
+      {work.details.length > 0 && (
+        <section class="wp-details">
+          <div class="opener rv">
+            <span class="data">Detail</span>
+            <h2 class="t-title">Close views</h2>
+          </div>
+          <div class="wp-details-grid">
+            {work.details.map((d, i) => (
+              <figure style="margin:0" class="rv">
+                <img src={`/images/${d}`} alt={`${work.title}, detail ${i + 1}`} loading="lazy" />
+                <figcaption class="data quiet" style="margin-top:8px">Detail {i + 1}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <nav class="wp-nav t-small">
+        <a href={`/works/${prev.slug}/`}>← {prev.title}</a>
+        <a href={`/works/${next.slug}/`}>{next.title} →</a>
+      </nav>
+    </div>
+  </article>
+
+  <footer class="band g-ink">
+    <div class="wrap foot-base data quiet" style="margin:0;padding:0;border:0">
+      <span>© {new Date().getFullYear()} {a.name}</span>
+      <a href="/">Home</a>
+    </div>
+  </footer>
+</Base>

@@ -1,0 +1,37 @@
+---
+/**
+ * One work, drawn at true relative scale: measure, image, museum label.
+ * `scaleStyle` sets --w, which both this block and its measure inherit.
+ */
+import Measure from './Measure.astro';
+import { scaleStyle } from '../lib/scale.js';
+
+const { work, eager = false } = Astro.props;
+const statusLabel = { available: 'Available', sold: 'Sold', nfs: 'Not for sale' }[work.status];
+const statusClass = { available: 'status status-available', sold: 'status status-sold', nfs: '' }[work.status];
+---
+<article class="work rv">
+  <a class="work-scaled" style={scaleStyle(work.dimensions)} href={`/works/${work.slug}/`}>
+    <Measure dimensions={work.dimensions} />
+    <img
+      src={`/images/${work.image}`}
+      alt={`${work.title}, ${work.year}`}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : undefined}
+    />
+    <div class="work-label">
+      <h3 class="t-title">{work.title}</h3>
+      <p class="t-small quiet work-line">
+        {work.medium}, {work.dimensions}<br />
+        {work.year}{work.edition ? `, ${work.edition}` : ''}
+      </p>
+      <p class="data work-line">
+        <span class="quiet">{work.code}</span>
+        {statusLabel && <span> &nbsp;·&nbsp; <span class={statusClass}>{statusLabel}</span></span>}
+      </p>
+      {work.details.length > 0 && (
+        <span class="work-more data accent">{work.details.length} details</span>
+      )}
+    </div>
+  </a>
+</article>

@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import site from '../data/site.json';
+import Nav from '../components/Nav.astro';
+
+const { title, description } = Astro.props;
+const a = site.artist;
+const pageTitle = title ? `${title} — ${a.name}` : `${a.name} — ${a.discipline}`;
+const desc = description ?? `${a.discipline} in ${a.location}. ${a.heroLine}`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={desc} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={desc} />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href={Astro.url.href} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <script is:inline>
+    // Reveal-on-scroll is progressive enhancement. Content is visible by
+    // default; only add the class that hides it once we know JS runs, and
+    // only if the browser supports the observer we need.
+    if ('IntersectionObserver' in window) document.documentElement.classList.add('js');
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <Nav />
+  <main id="main"><slot /></main>
+
+  <script>
+    const nav = document.querySelector('.nav');
+    const btn = document.querySelector('.nav-btn');
+    btn?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Close' : 'Menu';
+    });
+    document.querySelectorAll('.nav-list a').forEach((a) =>
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn?.setAttribute('aria-expanded', 'false');
+        if (btn) btn.textContent = 'Menu';
+      })
+    );
+
+    const items = document.querySelectorAll('.rv');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      items.forEach((el) => el.classList.add('in'));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+      items.forEach((el) => io.observe(el));
+    }
+
+    document.querySelectorAll('.exh-head').forEach((head) => {
+      head.addEventListener('click', () => {
+        const item = head.closest('.exh-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.exh-item.open').forEach((i) => {
+          i.classList.remove('open');
+          i.querySelector('.exh-head')?.setAttribute('aria-expanded', 'false');
+        });
+        if (!wasOpen) { item.classList.add('open'); head.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+  </script>
+</body>
+</html>

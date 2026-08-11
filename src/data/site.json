@@ -1,0 +1,55 @@
+{
+  "_comment": "All non-artwork text lives here. Replace every value in square brackets with real content.",
+  "artist": {
+    "name": "[Artist Name]",
+    "shortName": "[Surname]",
+    "discipline": "Painter and printmaker",
+    "location": "[City]",
+    "heroLine": "Oil on canvas, Chinese ink on card, silkscreen and copper plate etching.",
+    "portraitHero": "portrait-hero.jpg",
+    "portraitHeroCaption": "In the studio, [City], 2025",
+    "portraitStudio": "portrait-studio.jpg",
+    "statement": "I paint the same few rooms and the same few people until they stop being familiar.",
+    "bio": [
+      "[Artist Name] was born in [City] in [year] and graduated from [Institution] with a degree in Fine Arts in [year].",
+      "The work moves between three materials that keep correcting each other: oil on canvas for the long paintings, Chinese ink on card for the fast studies that precede them, and printmaking — silkscreen and copper plate etching — for images that only make sense in multiples.",
+      "[One paragraph on recurring subjects, influences, or what the work is asking. Written in the artist's own voice.]"
+    ],
+    "cv": "/cv.pdf",
+    "email": "[name]@example.com",
+    "instagram": "https://instagram.com/[handle]",
+    "instagramHandle": "@[handle]"
+  },
+  "exhibitions": [
+    {
+      "title": "Between Two Lines",
+      "kind": "Two-person exhibition",
+      "venue": "[Gallery Name]",
+      "city": "[City]",
+      "year": 2024,
+      "description": "[Two sentences on what the exhibition set out to do and who curated it.]",
+      "install": "install-1.jpg",
+      "works": ["sitter-late-afternoon", "the-long-wall", "registration"]
+    },
+    {
+      "title": "First Horizon",
+      "kind": "Group exhibition",
+      "venue": "[Gallery Name]",
+      "city": "Beirut",
+      "year": 2023,
+      "description": "[Two sentences on the group show, the number of artists, and the shared theme.]",
+      "install": "install-2.jpg",
+      "works": ["two-chairs", "doorway-second-version", "plate-i-standing-figure"]
+    },
+    {
+      "title": "Graduation Exhibition",
+      "kind": "Institutional",
+      "venue": "[Institution]",
+      "city": "[City]",
+      "year": 2022,
+      "description": "[Two sentences on the graduation project and the body of work shown.]",
+      "install": "install-3.jpg",
+      "works": ["my-mothers-hands", "oil-sketch-standing"]
+    }
+  ]
+}

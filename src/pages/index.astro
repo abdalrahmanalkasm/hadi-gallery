@@ -1,0 +1,181 @@
+---
+import Base from '../layouts/Base.astro';
+import Work from '../components/Work.astro';
+import site from '../data/site.json';
+import data from '../data/works.json';
+import { widthCm, trackStyle } from '../lib/scale.js';
+
+const a = site.artist;
+const works = data.works;
+const paintings = works.filter((w) => w.section === 'paintings');
+const prints = works.filter((w) => w.section === 'prints');
+const studies = works.filter((w) => w.section === 'studies');
+const bySlug = Object.fromEntries(works.map((w) => [w.slug, w]));
+
+const largest = Math.max(...paintings.map((w) => widthCm(w.dimensions) || 0));
+const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
+---
+
+<Base>
+  <!-- HERO -->
+  <header class="band hero g-ink" id="top">
+    <div class="wrap">
+      <p class="data quiet rv">{a.discipline} &nbsp;·&nbsp; {a.location}</p>
+      <h1 class="t-display hero-name rv">{a.name}</h1>
+      <p class="hero-sub rv">{a.heroLine}</p>
+
+      <div class="hero-facts rv">
+        <span class="hero-fact"><span class="data quiet">Works</span><b>{works.length}</b></span>
+        <span class="hero-fact"><span class="data quiet">Largest</span><b>{largest} cm</b></span>
+        <span class="hero-fact"><span class="data quiet">Smallest</span><b>{smallest} cm</b></span>
+        <span class="hero-fact"><span class="data quiet">Exhibitions</span><b>{site.exhibitions.length}</b></span>
+      </div>
+
+      <figure class="hero-figure rv">
+        <img src={`/images/${a.portraitHero}`} alt={`${a.name} in the studio`} fetchpriority="high" />
+        <figcaption class="data">{a.portraitHeroCaption}</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="band g-ochre" id="about">
+    <div class="wrap">
+      <div class="opener rv">
+        <span class="data">About</span>
+        <h2 class="t-section">The artist</h2>
+      </div>
+      <div class="about">
+        <img class="rv" src={`/images/${a.portraitStudio}`} alt={`Portrait of ${a.name}`} loading="lazy" />
+        <div class="rv">
+          <p class="about-statement">{a.statement}</p>
+          <div class="prose t-body">{a.bio.map((p) => <p>{p}</p>)}</div>
+          <a class="cta" href={a.cv} download>Curriculum vitae, PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAINTINGS -->
+  <section class="band g-paper" id="paintings">
+    <div class="wrap">
+      <div class="opener rv">
+        <span class="data">Paintings &nbsp;·&nbsp; {paintings.length}</span>
+        <h2 class="t-section">Oil on canvas</h2>
+        <p class="t-body quiet">Every work below is drawn to scale. The rule above each one is as wide as the painting is, in centimetres — so the largest canvas takes up more of this page than the smallest.</p>
+      </div>
+      <div class="works">
+        {paintings.map((w, i) => <Work work={w} eager={i === 0} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINTS -->
+  <section class="band g-ink" id="prints">
+    <div class="wrap">
+      <div class="opener rv">
+        <span class="data">Prints &nbsp;·&nbsp; {prints.length}</span>
+        <h2 class="t-section">Silkscreen and etching</h2>
+        <p class="t-body quiet">Printed in editions. Each sheet is pulled by hand, so no two are identical.</p>
+      </div>
+      <div class="works-flow">
+        {prints.map((w) => (
+          <div style={trackStyle(w.dimensions)}>
+            <Work work={w} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIES -->
+  <section class="band g-pale" id="studies">
+    <div class="wrap">
+      <div class="opener rv">
+        <span class="data">Studies &nbsp;·&nbsp; {studies.length}</span>
+        <h2 class="t-section">Ink, graphite, watercolour</h2>
+        <p class="t-body quiet">Made quickly, at the size of a hand. Several of these preceded the paintings above.</p>
+      </div>
+      <div class="works-flow">
+        {studies.map((w) => (
+          <div style={trackStyle(w.dimensions)}>
+            <Work work={w} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHIBITIONS -->
+  <section class="band g-paper" id="exhibitions">
+    <div class="wrap">
+      <div class="opener rv">
+        <span class="data">Exhibitions &nbsp;·&nbsp; {site.exhibitions.length}</span>
+        <h2 class="t-section">Where the work has shown</h2>
+      </div>
+      <div class="exh">
+        {site.exhibitions.map((ex, i) => (
+          <div class={`exh-item rv ${i === 0 ? 'open' : ''}`}>
+            <button class="exh-head" aria-expanded={i === 0 ? 'true' : 'false'}>
+              <span class="data quiet">{ex.year}</span>
+              <span>
+                <span class="t-title">{ex.title}</span>
+                <span class="t-small quiet">{ex.kind} &nbsp;·&nbsp; {ex.venue}, {ex.city}</span>
+              </span>
+              <span class="exh-mark" aria-hidden="true">+</span>
+            </button>
+            <div class="exh-panel">
+              <div class="exh-clip">
+                <div class="exh-in">
+                  <figure style="margin:0">
+                    <img src={`/images/${ex.install}`} alt={`Installation view, ${ex.title}`} loading="lazy" />
+                    <figcaption class="data quiet" style="margin-top:8px">Installation view, {ex.venue}</figcaption>
+                  </figure>
+                  <div>
+                    <p class="t-body quiet prose">{ex.description}</p>
+                    <div class="exh-works">
+                      {ex.works.map((slug) => {
+                        const w = bySlug[slug];
+                        return w ? (
+                          <a class="exh-work" href={`/works/${w.slug}/`}>
+                            <img src={`/images/${w.image}`} alt={w.title} loading="lazy" />
+                            <span class="data quiet">{w.title}</span>
+                          </a>
+                        ) : null;
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer class="band g-ink" id="contact">
+    <div class="wrap">
+      <div class="opener rv">
+        <span class="data">Contact</span>
+        <h2 class="t-section">Enquiries</h2>
+      </div>
+      <div class="foot-grid">
+        <div class="rv">
+          <p class="t-body quiet" style="max-width:42ch;margin:0 0 24px">For availability, exhibition proposals, or full documentation of any work.</p>
+          <a class="foot-mail" href={`mailto:${a.email}`}>{a.email}</a>
+        </div>
+        <div class="foot-links t-small rv">
+          <a href={a.instagram} rel="me noopener" target="_blank">Instagram, {a.instagramHandle}</a>
+          <a href={a.cv} download>Curriculum vitae, PDF</a>
+          <a href={`mailto:${a.email}`}>Email</a>
+        </div>
+      </div>
+      <div class="foot-base data quiet">
+        <span>© {new Date().getFullYear()} {a.name}</span>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+</Base>
