@@ -30,9 +30,24 @@ const smallest = Math.min(...sized.map((w) => widthCm(w.dimensions) || Infinity)
  * seconds — a taste of each material does that; the whole catalogue does not.
  */
 const PREVIEW = 4;
+
+/** The artist as a Person, so a search for the name resolves to this site. */
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: a.name,
+  jobTitle: a.discipline,
+  description: a.statement,
+  email: `mailto:${a.email}`,
+  telephone: a.phone,
+  address: { '@type': 'PostalAddress', addressLocality: a.location },
+  sameAs: [a.instagram],
+  url: Astro.site?.href,
+  image: new URL('/og.jpg', Astro.site).href,
+};
 ---
 
-<Base>
+<Base schema={schema}>
   <!-- HERO -->
   <header class="band hero g-ink" id="top">
     <div class="wrap">

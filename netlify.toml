@@ -1,0 +1,32 @@
+# Netlify build settings.
+#
+# `base` matters: the repository root is this `site` folder's parent on GitHub,
+# so without it Netlify looks for package.json in the wrong place. Adjust if the
+# repository layout changes.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Astro emits real directories, so a missing path is a genuine 404 rather than
+# something to rewrite into the app — there is no client-side router to hand it
+# to. Long-cache the fingerprinted assets; leave HTML revalidating so a content
+# change is picked up on the next visit.
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

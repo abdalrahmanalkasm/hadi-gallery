@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Hadi Alkawkgi">
+  <!-- The brief gives this identity no logo: the name set in Newsreader is the
+       wordmark. At 16px a serif H is unreadable, so the letter is drawn as
+       three bars — the skeleton of an H in ochre on ink, which survives being
+       a favicon and stays inside the locked two-colour pairing. -->
+  <rect width="64" height="64" fill="#101010"/>
+  <g fill="#A9762B">
+    <rect x="18" y="16" width="7" height="32"/>
+    <rect x="39" y="16" width="7" height="32"/>
+    <rect x="25" y="29" width="14" height="6"/>
+  </g>
+</svg>

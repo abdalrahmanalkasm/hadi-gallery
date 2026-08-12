@@ -15,11 +15,51 @@ const { work, prev, next } = Astro.props;
 const a = site.artist;
 const sectionLabel = { paintings: 'Paintings', prints: 'Prints', studies: 'Studies', portraits: 'Portraits' }[work.section];
 const statusLabel = { available: 'Available', sold: 'Sold', nfs: 'Not for sale' }[work.status];
+
+const pending = work._pending ?? [];
+const cm = (s) => String(s).match(/([\d.]+)\s*[×x*]\s*([\d.]+)/);
+const size = cm(work.dimensions);
+
+/**
+ * VisualArtwork for search engines. Only facts that are actually confirmed go
+ * in: anything still listed in _pending is a placeholder, and publishing a
+ * placeholder as machine-readable metadata is how a wrong size or a wrong
+ * availability ends up quoted back at the artist.
+ */
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'VisualArtwork',
+  name: pending.includes('title') ? undefined : work.title,
+  ...(pending.includes('year') ? {} : { dateCreated: String(work.year) }),
+  artform: work.medium,
+  artMedium: work.medium,
+  creator: { '@type': 'Person', name: a.name, jobTitle: a.discipline },
+  image: new URL(`/images/${work.image}`, Astro.site).href,
+  url: new URL(`/works/${work.slug}/`, Astro.site).href,
+  ...(size && !pending.includes('dimensions')
+    ? {
+        width: { '@type': 'QuantitativeValue', value: Number(size[1]), unitCode: 'CMT' },
+        height: { '@type': 'QuantitativeValue', value: Number(size[2]), unitCode: 'CMT' },
+      }
+    : {}),
+  ...(work.status === 'available' && work.priceUsd && !pending.includes('status')
+    ? {
+        offers: {
+          '@type': 'Offer',
+          price: work.priceUsd,
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+        },
+      }
+    : {}),
+};
 ---
 
 <Base
   title={`${work.title}, ${work.year}`}
   description={`${work.title}, ${work.year}. ${work.medium}, ${work.dimensions}. By ${a.name}.`}
+  image={`/images/${work.image}`}
+  schema={schema}
 >
   <article class="band wp g-paper">
     <div class="wrap">
