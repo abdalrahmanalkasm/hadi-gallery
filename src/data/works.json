@@ -1,5 +1,5 @@
 {
-  "_comment": "Add a new artwork by copying one object and changing the values. 'section' must be one of: paintings | prints | studies | portraits. 'status' must be one of: available | sold | nfs. 'dimensions' is always width × height — scale.js reads the first number and it drives how wide the work is drawn on the page. Any entry with a '_pending' key still has placeholder values for the fields it lists. '_priceUsd' is never displayed; the site quotes no prices and sends enquiries to email.",
+  "_comment": "Add a new artwork by copying one object and changing the values. 'section' must be one of: paintings | prints | studies | portraits. 'status' must be one of: available | sold | nfs. 'dimensions' is always width × height — scale.js reads the first number and it drives how wide the work is drawn on the page. Any entry with a '_pending' key still has placeholder values for the fields it lists. 'priceUsd' is shown on the site, but only while status is 'available' — a price on a sold work misleads.",
   "works": [
     {
       "slug": "painting-01",
@@ -20,7 +20,7 @@
         "painting-01-d5.jpg"
       ],
       "note": "Self-portrait.",
-      "_priceUsd": 900
+      "priceUsd": 900
     },
     {
       "slug": "painting-02",
@@ -87,7 +87,7 @@
         "painting-04-d3.jpg"
       ],
       "note": "A study after the original by Rembrandt van Rijn.",
-      "_priceUsd": 600
+      "priceUsd": 600
     },
     {
       "slug": "painting-05",
@@ -104,7 +104,7 @@
         "painting-05-d1.jpg"
       ],
       "note": "A study after the original painting.",
-      "_priceUsd": 500,
+      "priceUsd": 500,
       "_pending": [
         "title"
       ]
@@ -126,7 +126,7 @@
         "painting-06-d3.jpg"
       ],
       "note": "A study after the original painting.",
-      "_priceUsd": 500,
+      "priceUsd": 500,
       "_pending": [
         "title"
       ]
@@ -206,7 +206,7 @@
         "painting-10-d7.jpg"
       ],
       "note": "",
-      "_priceUsd": 1500
+      "priceUsd": 1500
     },
     {
       "slug": "painting-11",

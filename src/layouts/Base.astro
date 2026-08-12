@@ -34,6 +34,14 @@ const desc = description ?? `${a.discipline} in ${a.location}. ${a.heroLine}`;
   <Nav />
   <main id="main"><slot /></main>
 
+  <dialog class="lb" aria-label="Full size view">
+    <div class="lb-scroll"><img alt="" /></div>
+    <div class="lb-bar">
+      <p class="lb-cap data t-small"></p>
+      <button class="lb-close data t-small" type="button">Close</button>
+    </div>
+  </dialog>
+
   <script>
     const nav = document.querySelector('.nav');
     const btn = document.querySelector('.nav-btn');
@@ -60,6 +68,41 @@ const desc = description ?? `${a.discipline} in ${a.location}. ${a.heroLine}`;
         });
       }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
       items.forEach((el) => io.observe(el));
+    }
+
+    // Full-size view. The <dialog> supplies Esc, the focus trap, and returning
+    // focus to the button that opened it; zooming is just the image swapped to
+    // its natural pixel size inside a scrolling box, so pinch and drag are the
+    // browser's own.
+    const lb = document.querySelector('.lb');
+    if (lb) {
+      const scroll = lb.querySelector('.lb-scroll');
+      const lbImg = scroll.querySelector('img');
+      const cap = lb.querySelector('.lb-cap');
+
+      document.querySelectorAll('.zoomable').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const img = btn.querySelector('img');
+          lb.classList.remove('zoomed');
+          lbImg.src = img.currentSrc || img.src;
+          lbImg.alt = img.alt;
+          cap.textContent = img.alt;
+          lb.showModal();
+        });
+      });
+
+      lbImg.addEventListener('click', () => {
+        const zoomed = lb.classList.toggle('zoomed');
+        if (!zoomed) scroll.scrollTo(0, 0);
+      });
+
+      // The padding around the image is the only safe place to click away.
+      scroll.addEventListener('click', (e) => { if (e.target === scroll) lb.close(); });
+      lb.querySelector('.lb-close').addEventListener('click', () => lb.close());
+      lb.addEventListener('close', () => {
+        lb.classList.remove('zoomed');
+        lbImg.removeAttribute('src');
+      });
     }
 
     document.querySelectorAll('.exh-head').forEach((head) => {

@@ -51,15 +51,23 @@ closely at the work.
 It is **not** a shop. There is no cart, no checkout, no payment. Enquiries go to
 email.
 
+Prices are the one exception, added later at the client's request against the
+original brief. An asking price is shown for a work that has one, and only
+while its `status` is `available` — a price beside a sold work reads as an
+offer that no longer stands. Nothing else about the commerce rule moves: there
+is still no cart, no checkout, and no payment, and the only call to action is
+the email enquiry.
+
 ## Stack
 
 - **Astro 4**, static output only. No SSR, no adapter.
 - **No CSS framework.** Plain CSS with custom properties in `src/styles/global.css`.
 - **No UI component library.** No React, Vue, or Svelte islands.
 - **No client-side router.** Every page is a real HTML file.
-- Client JavaScript is limited to three things, all in `src/layouts/Base.astro`:
-  mobile menu toggle, `IntersectionObserver` scroll reveal, exhibition accordion.
-  If a new feature needs more JS than that, raise it before writing it.
+- Client JavaScript is limited to four things, all in `src/layouts/Base.astro`:
+  mobile menu toggle, `IntersectionObserver` scroll reveal, exhibition accordion,
+  and the work-page lightbox. If a new feature needs more JS than that, raise it
+  before writing it.
 
 ## Content model
 
@@ -152,7 +160,16 @@ the file's comment; read it before changing `MAX_CM` or `MIN_PCT`.
 Motion: scroll reveal only — 14px rise, once per element. It is progressive
 enhancement: the `.js` class is added in `<head>` and only then does CSS hide
 anything, so content stays visible if scripts fail. Keep it that way. No
-parallax, no counters, no carousels, no hover zoom, no lightbox.
+parallax, no counters, no carousels, no hover zoom.
+
+**Lightbox — added later at the client's request**, against the original brief.
+It exists only on a work page, only on the lead image and the details, and only
+on click; there is still no hover zoom anywhere, and the home page is untouched.
+It is a native `<dialog>`, so Esc, the focus trap, and returning focus to the
+button that opened it are the element's own behaviour rather than script.
+Zooming swaps the image to its natural pixel size inside a scrolling box, so
+pinch and drag are the browser's — no gesture library, and it degrades to a
+plain page with no dialog if scripts fail.
 
 ## Rules
 
