@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Work from '../components/Work.astro';
 import site from '../data/site.json';
 import data from '../data/works.json';
-import { widthCm, trackStyle } from '../lib/scale.js';
+import { widthCm } from '../lib/scale.js';
 
 const a = site.artist;
 const works = data.works;
@@ -63,7 +63,7 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
       <div class="opener rv">
         <span class="data">Paintings &nbsp;·&nbsp; {paintings.length}</span>
         <h2 class="t-section">Oil on canvas</h2>
-        <p class="t-body quiet">Every work below is drawn to scale against the others, so the largest canvas takes up more of this page than the smallest. Real dimensions are given under each one.</p>
+        <p class="t-body quiet">Dimensions are given under each work. They run from 25 cm across to 220 cm.</p>
       </div>
       <div class="works">
         {paintings.map((w, i) => <Work work={w} eager={i === 0} />)}
@@ -80,11 +80,7 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
         <p class="t-body quiet">Each sheet is pulled by hand, so no two are identical.</p>
       </div>
       <div class="works-flow">
-        {prints.map((w) => (
-          <div style={trackStyle(w.dimensions)}>
-            <Work work={w} />
-          </div>
-        ))}
+        {prints.map((w) => <Work work={w} />)}
       </div>
     </div>
   </section>
@@ -98,11 +94,7 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
         <p class="t-body quiet">Made quickly, on paper and card.</p>
       </div>
       <div class="works-flow">
-        {studies.map((w) => (
-          <div style={trackStyle(w.dimensions)}>
-            <Work work={w} />
-          </div>
-        ))}
+        {studies.map((w) => <Work work={w} />)}
       </div>
     </div>
   </section>

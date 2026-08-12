@@ -1,22 +1,23 @@
 ---
 /**
- * One work, drawn at true relative scale: image, then museum label.
- * `scaleStyle` sets --w — the block's width is the work's real width, mapped
- * through src/lib/scale.js, so a large canvas takes more of the page than a
- * small one. The size itself is stated in the label rather than drawn.
+ * One work in the grid: image, then museum label.
+ *
+ * Every cell is the same width and the image is contained, never cropped —
+ * a painting cut to fit a tile is a different painting. Works are no longer
+ * drawn at relative scale; the real dimensions are stated in the label.
  */
-import { scaleStyle } from '../lib/scale.js';
-
 const { work, eager = false } = Astro.props;
 ---
 <article class="work rv">
-  <a class="work-scaled" style={scaleStyle(work.dimensions)} href={`/works/${work.slug}/`}>
-    <img
-      src={`/images/${work.image}`}
-      alt={`${work.title}, ${work.year}`}
-      loading={eager ? 'eager' : 'lazy'}
-      fetchpriority={eager ? 'high' : undefined}
-    />
+  <a class="work-scaled" href={`/works/${work.slug}/`}>
+    <span class="work-frame">
+      <img
+        src={`/images/${work.image}`}
+        alt={`${work.title}, ${work.year}`}
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : undefined}
+      />
+    </span>
     <div class="work-label">
       <h3 class="t-title">{work.title}</h3>
       <p class="t-small quiet work-line">

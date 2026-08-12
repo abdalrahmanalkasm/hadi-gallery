@@ -214,20 +214,27 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .g-paper .cta:hover { background: var(--ink); color: var(--paper); }
 @media (max-width: 840px) { .about { grid-template-columns: 1fr; } }
 
-/* ---------- works at true relative scale ---------- */
+/* ---------- works ----------
+   One column, every work the same width, stacked down the page. Images keep
+   their own proportions — nothing is cropped to a common shape, because a
+   painting trimmed to fit is a different painting. The column is held well
+   short of the full page so a work is seen whole without moving your head. */
 
-.works { display: flex; flex-direction: column; gap: var(--s8); }
-/* `display: block` is load-bearing: this is an <a>, and width has no effect on
-   an inline box, so without it every work drew at full column width and the
-   relative scale — the one thing this design exists to say — silently did not
-   happen. */
-.work-scaled { display: block; width: var(--w); max-width: 100%; }
-.work img { width: 100%; }
+.works,
+.works-flow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s7);
+  max-width: 820px;
+  margin-inline: auto;
+}
+.work-scaled { display: block; }
+.work-frame { display: block; }
+.work-frame img { width: 100%; }
 
 .work-label {
   margin-top: var(--s3); padding-top: var(--s2);
   border-top: 1px solid rgba(16, 16, 16, 0.18);
-  max-width: 46ch;
 }
 .g-ink .work-label { border-top-color: rgba(239, 235, 227, 0.22); }
 .g-pale .work-label { border-top-color: rgba(36, 27, 13, 0.2); }
@@ -235,10 +242,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .work-line { margin-top: var(--s1); }
 .work-more { display: inline-block; margin-top: var(--s3); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
 
-/* Centred rather than alternating left and right. With 26 works at widths from
-   26% to 100%, the zigzag read as raggedness; a centred column lets the size
-   differences show as rhythm and keeps a still axis down the page. */
-.works .work-scaled { margin-inline: auto; }
 
 .status { display: inline-flex; align-items: center; gap: var(--s1); }
 .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; }
