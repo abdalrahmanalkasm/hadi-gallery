@@ -302,7 +302,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .wp-fact dd { margin: 0; }
 .wp-note { margin-top: var(--s5); max-width: 44ch; }
 .wp-details { margin-top: var(--s7); }
-.wp-details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--s3); }
+/* auto-fill, not auto-fit: auto-fit collapses the empty tracks, so a work with
+   a single detail stretched that one image across the whole row. */
+.wp-details-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--s3); }
 .wp-details-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
 .wp-nav { margin-top: var(--s7); padding-top: var(--s4); border-top: 1px solid rgba(16,16,16,.16); display: flex; justify-content: space-between; gap: var(--s3); flex-wrap: wrap; }
 @media (max-width: 840px) { .wp-lead { grid-template-columns: 1fr; } }
