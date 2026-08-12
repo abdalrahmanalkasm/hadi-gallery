@@ -34,6 +34,7 @@ const statusLabel = { available: 'Available', sold: 'Sold', nfs: 'Not for sale' 
           </div>
           <button class="zoomable" type="button" aria-label={`View ${work.title} at full size`}>
             <img src={`/images/${work.image}`} alt={`${work.title}, ${work.year}`} fetchpriority="high" />
+            <span class="zoom-hint data accent t-small">View full size</span>
           </button>
         </figure>
 
@@ -48,7 +49,7 @@ const statusLabel = { available: 'Available', sold: 'Sold', nfs: 'Not for sale' 
             {work.edition && <div class="wp-fact"><dt class="data">Edition</dt><dd>{work.edition}</dd></div>}
             <div class="wp-fact"><dt class="data">Status</dt><dd>{statusLabel}</dd></div>
             {work.status === 'available' && work.priceUsd && (
-              <div class="wp-fact"><dt class="data">Price</dt><dd class="data">{work.priceUsd.toLocaleString('en-US')} USD</dd></div>
+              <div class="wp-fact"><dt class="data">Price</dt><dd class="data">${work.priceUsd.toLocaleString('en-US')} USD</dd></div>
             )}
           </dl>
 
@@ -66,7 +67,7 @@ const statusLabel = { available: 'Available', sold: 'Sold', nfs: 'Not for sale' 
         <section class="wp-details">
           <div class="opener rv">
             <span class="data">Detail</span>
-            <h2 class="t-title">Close views</h2>
+            <h2 class="t-title">Details</h2>
           </div>
           <div class="wp-details-grid">
             {work.details.map((d, i) => (

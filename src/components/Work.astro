@@ -29,7 +29,7 @@ const statusClass = { available: 'status status-available', sold: 'status status
         <span class="quiet">{work.code}</span>
         {statusLabel && <span> &nbsp;·&nbsp; <span class={statusClass}>{statusLabel}</span></span>}
         {work.status === 'available' && work.priceUsd && (
-          <span class="quiet"> &nbsp;·&nbsp; {work.priceUsd.toLocaleString('en-US')} USD</span>
+          <span class="quiet"> &nbsp;·&nbsp; ${work.priceUsd.toLocaleString('en-US')} USD</span>
         )}
       </p>
       {work.details.length > 0 && (
