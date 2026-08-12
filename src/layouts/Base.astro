@@ -71,19 +71,53 @@ const desc = description ?? `${a.discipline} in ${a.location}. ${a.heroLine}`;
     }
 
     // Full-size view. The <dialog> supplies Esc, the focus trap, and returning
-    // focus to the button that opened it; zooming is just the image swapped to
-    // its natural pixel size inside a scrolling box, so pinch and drag are the
-    // browser's own.
+    // focus to the button that opened it. Zoom scales the image inside a
+    // scrolling box, so panning is the browser's own scrolling and a phone's
+    // pinch still works untouched.
     const lb = document.querySelector('.lb');
     if (lb) {
       const scroll = lb.querySelector('.lb-scroll');
       const lbImg = scroll.querySelector('img');
       const cap = lb.querySelector('.lb-cap');
 
+      // 1 is the fitted size. The ceiling is one screen pixel per image pixel —
+      // past that the photograph has no more detail to give, only blur.
+      let zoom = 1, fitW = 0, maxZoom = 1;
+
+      function measure() {
+        if (fitW) return;
+        fitW = lbImg.getBoundingClientRect().width;
+        maxZoom = fitW ? Math.max(1, lbImg.naturalWidth / fitW) : 1;
+      }
+
+      // Anchored so whatever sits under the pointer stays under it. Without
+      // this the reader loses the spot they were looking at on every notch.
+      function setZoom(next, x, y) {
+        measure();
+        next = Math.min(maxZoom, Math.max(1, next));
+        if (next === zoom) return;
+
+        const box = scroll.getBoundingClientRect();
+        if (x == null) { x = box.left + box.width / 2; y = box.top + box.height / 2; }
+        const was = lbImg.getBoundingClientRect();
+        const fx = was.width ? Math.min(1, Math.max(0, (x - was.left) / was.width)) : 0.5;
+        const fy = was.height ? Math.min(1, Math.max(0, (y - was.top) / was.height)) : 0.5;
+
+        zoom = next;
+        lb.classList.toggle('zoomed', zoom > 1);
+        lbImg.style.width = zoom > 1 ? `${fitW * zoom}px` : '';
+
+        const now = lbImg.getBoundingClientRect();
+        scroll.scrollLeft += now.left + fx * now.width - x;
+        scroll.scrollTop += now.top + fy * now.height - y;
+      }
+
       document.querySelectorAll('.zoomable').forEach((btn) => {
         btn.addEventListener('click', () => {
           const img = btn.querySelector('img');
+          zoom = 1; fitW = 0;
           lb.classList.remove('zoomed');
+          lbImg.style.width = '';
           lbImg.src = img.currentSrc || img.src;
           lbImg.alt = img.alt;
           cap.textContent = img.alt;
@@ -91,16 +125,74 @@ const desc = description ?? `${a.discipline} in ${a.location}. ${a.heroLine}`;
         });
       });
 
-      lbImg.addEventListener('click', () => {
-        const zoomed = lb.classList.toggle('zoomed');
-        if (!zoomed) scroll.scrollTo(0, 0);
+      // deltaY is reported in pixels, lines or pages depending on the device;
+      // normalise so a trackpad glides and a notched wheel steps about 10%.
+      scroll.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const px = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * 400 : e.deltaY;
+        setZoom(zoom * Math.pow(0.999, px), e.clientX, e.clientY);
+      }, { passive: false });
+
+      // Drag to pan, mouse only — a touch screen already pans and pinches by
+      // itself and hijacking that would make it worse. A press that travels
+      // more than a few pixels is a drag; anything shorter stays a click, so
+      // the same button can both pan and toggle the zoom.
+      let panning = false, dragged = false, fromX = 0, fromY = 0, fromL = 0, fromT = 0;
+
+      scroll.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'mouse' || e.button !== 0 || zoom <= 1) return;
+        panning = true; dragged = false;
+        fromX = e.clientX; fromY = e.clientY;
+        fromL = scroll.scrollLeft; fromT = scroll.scrollTop;
+        scroll.setPointerCapture(e.pointerId);
+        lb.classList.add('panning');
+        e.preventDefault();
       });
 
-      // The padding around the image is the only safe place to click away.
-      scroll.addEventListener('click', (e) => { if (e.target === scroll) lb.close(); });
+      scroll.addEventListener('pointermove', (e) => {
+        if (!panning) return;
+        const dx = e.clientX - fromX, dy = e.clientY - fromY;
+        if (!dragged && Math.hypot(dx, dy) > 4) dragged = true;
+        scroll.scrollLeft = fromL - dx;
+        scroll.scrollTop = fromT - dy;
+      });
+
+      const endPan = (e) => {
+        if (!panning) return;
+        panning = false;
+        lb.classList.remove('panning');
+        try { scroll.releasePointerCapture(e.pointerId); } catch {}
+      };
+      scroll.addEventListener('pointerup', endPan);
+      scroll.addEventListener('pointercancel', endPan);
+
+      lbImg.addEventListener('click', (e) => {
+        if (dragged) { dragged = false; return; }
+        measure();
+        setZoom(zoom > 1 ? 1 : maxZoom, e.clientX, e.clientY);
+      });
+
+      // The wheel is no use to anyone working from the keyboard.
+      lb.addEventListener('keydown', (e) => {
+        if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(zoom * 1.25); }
+        else if (e.key === '-') { e.preventDefault(); setZoom(zoom / 1.25); }
+        else if (e.key === '0') { e.preventDefault(); setZoom(1); }
+      });
+
+      // A resize changes what "fitted" means, so the baseline has to go.
+      addEventListener('resize', () => { fitW = 0; setZoom(1); });
+
+      // The padding around the image is the only safe place to click away —
+      // and only if the press was a click, not a pan that overshot the edge.
+      scroll.addEventListener('click', (e) => {
+        if (dragged) { dragged = false; return; }
+        if (e.target === scroll) lb.close();
+      });
       lb.querySelector('.lb-close').addEventListener('click', () => lb.close());
       lb.addEventListener('close', () => {
+        zoom = 1; fitW = 0;
         lb.classList.remove('zoomed');
+        lbImg.style.width = '';
         lbImg.removeAttribute('src');
       });
     }

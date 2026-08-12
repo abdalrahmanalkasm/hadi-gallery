@@ -167,9 +167,15 @@ It exists only on a work page, only on the lead image and the details, and only
 on click; there is still no hover zoom anywhere, and the home page is untouched.
 It is a native `<dialog>`, so Esc, the focus trap, and returning focus to the
 button that opened it are the element's own behaviour rather than script.
-Zooming swaps the image to its natural pixel size inside a scrolling box, so
-pinch and drag are the browser's — no gesture library, and it degrades to a
-plain page with no dialog if scripts fail.
+Zoom runs from the fitted size up to one screen pixel per image pixel and no
+further — past that the photograph has no more detail, only blur. The wheel
+zooms anchored on the pointer, click toggles fitted against full, and `+`/`-`
+/`0` do the same from the keyboard. Dragging pans, mouse only — a touch screen
+already pans and pinches by itself and hijacking that makes it worse. A press
+that travels more than a few pixels counts as a drag, anything shorter stays a
+click, which is what lets one button both pan and toggle. Panning sets the
+scroll box's own scroll position, so there is no gesture library, and with
+scripts off the page is unchanged.
 
 ## Rules
 
