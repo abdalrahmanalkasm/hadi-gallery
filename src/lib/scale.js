@@ -1,8 +1,8 @@
 /**
  * Turns the human-readable `dimensions` field ("120 × 90 cm") into the
  * numbers the layout needs. This is the mechanism behind the direction in
- * design-brief.md: one parsed number drives both the image width and the
- * length of its measure bar, so the two can never disagree.
+ * design-brief.md: the parsed width decides how much of the page a work
+ * occupies, so the reader sees the sizes in relation to each other.
  *
  * Why a square root and not a straight proportion:
  * the collection spans a 220 cm canvas down to a 10 cm panel, a 22:1

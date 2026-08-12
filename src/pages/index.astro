@@ -63,7 +63,7 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
       <div class="opener rv">
         <span class="data">Paintings &nbsp;·&nbsp; {paintings.length}</span>
         <h2 class="t-section">Oil on canvas</h2>
-        <p class="t-body quiet">Every work below is drawn to scale. The rule above each one is as wide as the painting is, in centimetres — so the largest canvas takes up more of this page than the smallest.</p>
+        <p class="t-body quiet">Every work below is drawn to scale against the others, so the largest canvas takes up more of this page than the smallest. Real dimensions are given under each one.</p>
       </div>
       <div class="works">
         {paintings.map((w, i) => <Work work={w} eager={i === 0} />)}

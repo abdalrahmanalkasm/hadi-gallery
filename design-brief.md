@@ -44,11 +44,21 @@ study, and the reader scrolls further past it. The page argues that this is a
 body of work made by a hand at different speeds and sizes, not a feed of images.
 
 **Signature element:**
-**The measure.** Every work is introduced by a drawn scale bar — a short ochre
-rule whose length is proportional to the real width of the piece, labelled in
-centimetres. It appears before the image, at the same width the image will be.
-Across the page the measures form a visible rhythm: long for the canvases,
-short for the studies. It is the one thing a visitor would describe afterwards.
+**True relative scale.** A work occupies the page in proportion to its real
+width: the 220 cm canvas fills the column, the 10 cm panel takes a quarter of
+it. Down the page the widths form a visible rhythm — wide for the canvases,
+narrow for the studies — and the reader scrolls further past a large work than
+a small one.
+
+~~**The measure.**~~ *Superseded. The direction originally carried a drawn
+scale bar above every work — a short ochre rule as wide as the image would be,
+ticked at both ends and labelled in centimetres. The client removed it as
+unwanted visual noise. Note that it had never worked as specified: `.work-scaled`
+is an `<a>` and was never set to `display: block`, so `width` was ignored and
+every work drew at full column width while its bar claimed a different size.
+What the client rejected was bars of identical length labelled 38 cm, 75 cm and
+220 cm. The scale itself now works and has been kept; the sizes are stated in
+each label rather than drawn.*
 
 **Reference points:**
 - **Museum object labels** (Tate, V&A) — title, medium, dimensions set quietly
@@ -182,12 +192,15 @@ owns the values and the stack owns the code. Built directly in Astro.
 its `dimensions` field at build time and converted to a column percentage:
 
 ```
-widthPct = clamp(cm / 150 × 100, 24, 100)
+widthPct = clamp(√(cm / 220) × 100, 26, 100)
 ```
 
-150 cm is the largest work; it fills the column. The 24% floor keeps the
-smallest studies legible on a phone. The same number drives both the image
-width and the length of its measure bar, so the two can never disagree.
+220 cm is the largest work; it fills the column. The 26% floor keeps the
+smallest work legible on a phone. The square root, rather than a straight
+proportion, is what keeps a 22:1 range readable — mapped linearly, every study
+and most prints would pin to the floor and a 50 cm print would look the same
+size as a 21 cm sketch, destroying the very comparison this exists to make.
+Reasoning in full in `src/lib/scale.js`.
 
 ---
 
@@ -197,6 +210,10 @@ width and the length of its measure bar, so the two can never disagree.
 |---|---|---|
 | — | Palette, section order, one-page + per-work URLs, English | Client |
 | — | Direction: true relative scale, the measure as signature | `frontend-design` |
+| 2026-08-12 | Fourth section, Portraits, added after launch planning | Client |
+| 2026-08-12 | Asking prices shown, against "not a shop" | Client |
+| 2026-08-12 | Lightbox with zoom and pan, against "no lightbox" | Client |
+| 2026-08-12 | Measure bar removed; relative scale kept and repaired | Client |
 | — | Newsreader + IBM Plex Mono, replacing Archivo + Libre Franklin | `design-lead` |
 | — | Previous build failed the AI-default gate (broadsheet); revised | `frontend-design` |
 | — | `design-system`, `design`, `ui-styling` skipped — reasons above | `design-lead` |

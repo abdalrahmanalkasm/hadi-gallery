@@ -1,9 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Measure from '../../components/Measure.astro';
 import site from '../../data/site.json';
 import data from '../../data/works.json';
-import { scaleStyle } from '../../lib/scale.js';
 
 export function getStaticPaths() {
   const works = data.works;
@@ -29,9 +27,6 @@ const statusLabel = { available: 'Available', sold: 'Sold', nfs: 'Not for sale' 
 
       <div class="wp-lead">
         <figure style="margin:0" class="rv">
-          <div style={scaleStyle(work.dimensions)}>
-            <Measure dimensions={work.dimensions} />
-          </div>
           <button class="zoomable" type="button" aria-label={`View ${work.title} at full size`}>
             <img src={`/images/${work.image}`} alt={`${work.title}, ${work.year}`} fetchpriority="high" />
             <span class="zoom-hint data accent t-small">View full size</span>

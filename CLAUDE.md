@@ -18,8 +18,9 @@ These were settled with the client before any code was written. In Design Pack
 terms they enter every session **locked**, and a request to change something
 else is never permission to reopen them:
 
-- **Direction** — works are shown at true relative scale; the measure is the
-  signature element. Full reasoning in `design-brief.md`.
+- **Direction** — works are shown at true relative scale. That is the signature
+  element. Full reasoning in `design-brief.md`. (The drawn measure bar that
+  originally annotated it was removed at the client's request — see below.)
 - **Palette** — black, white, ochre. Three colours. No fourth.
 - **Type** — Newsreader (everything readable), IBM Plex Mono (measurements,
   catalogue numbers, plate codes, status). Two faces, no third.
@@ -143,16 +144,22 @@ Type, two faces only:
 Four type steps (`--t-xs` … `--t-xl`) plus one viewport-scaled display step. Do
 not add a fifth. If content seems to need one, the content is wrong.
 
-### The measure — the signature element
+### True relative scale — the signature element
 
-Every work is introduced by an ochre rule as wide as the image, ticked at both
-ends, labelled with the real width in centimetres. It is not decoration; it is
-the design's whole argument, made visible.
+A work's width on the page is its real width, mapped through `scalePct()` in
+`src/lib/scale.js`, which parses the `dimensions` string. A 220 cm canvas fills
+the column; a 10 cm panel takes a quarter of it. This is not decoration; it is
+the design's whole argument, made visible. **Never** set a work's width by
+hand, and never compute a second scale formula inline — one function owns it.
 
-Image width and measure length both come from `scalePct()` in
-`src/lib/scale.js`, which parses the `dimensions` string. **Never** set a work's
-width by hand, and never compute a second scale formula inline — one function
-owns this so the bar and the image cannot disagree.
+`.work-scaled` must keep `display: block`. It is an `<a>`, and `width` has no
+effect on an inline box, so without it every work silently draws at full column
+width and the argument disappears while the CSS still looks correct.
+
+**The drawn measure was removed at the client's request.** It was an ochre rule
+as wide as the image, ticked at both ends and labelled in centimetres, sitting
+above every work. The scale it annotated stays; the sizes are now stated in each
+label instead of drawn. Do not reintroduce the bar without asking.
 
 The mapping is a square root, not a straight proportion. The reasoning is in
 the file's comment; read it before changing `MAX_CM` or `MIN_PCT`.

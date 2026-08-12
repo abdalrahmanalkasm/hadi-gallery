@@ -3,9 +3,13 @@
    Implements the direction recorded in /design-brief.md.
 
    Thesis: the size of a work is its most important fact, and the web
-   erases it. Here works are drawn at true relative scale and every one
-   is introduced by a measure — an ochre bar as long as the image is
-   wide, labelled in centimetres.
+   erases it. Here works are drawn at true relative scale, so a large
+   canvas occupies more of the page than a small study, and the real
+   dimensions are stated in each label.
+
+   The drawn measure — an ochre bar as long as the image, ticked and
+   labelled in centimetres — was the original signature element. The
+   client removed it; the scale it annotated remains.
 
    Two faces only:
      Newsreader     everything readable (a museum label uses one face)
@@ -137,25 +141,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .opener .data { display: block; margin-bottom: var(--s3); }
 .opener .t-section { margin-bottom: var(--s3); }
 
-/* ---------- THE MEASURE — signature element ---------- */
-
-.measure { margin-bottom: var(--s2); }
-.measure-bar { height: 1px; background: var(--ochre); }
-.measure-tick { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s2); }
-.measure-tick::before,
-.measure-tick::after {
-  content: "";
-  width: 1px; height: 5px;
-  background: var(--ochre);
-  flex: none;
-}
-.measure-label { flex: 1; text-align: center; color: var(--ochre-deep); white-space: nowrap; margin-top: -2px; }
-.g-ink .measure-label { color: var(--ochre); }
-.g-ochre .measure-bar,
-.g-ochre .measure-tick::before,
-.g-ochre .measure-tick::after { background: var(--on-ochre); }
-.g-ochre .measure-label { color: var(--on-ochre); }
-
 /* ---------- nav ---------- */
 
 .nav {
@@ -232,7 +217,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- works at true relative scale ---------- */
 
 .works { display: flex; flex-direction: column; gap: var(--s8); }
-.work-scaled { width: var(--w); max-width: 100%; }
+/* `display: block` is load-bearing: this is an <a>, and width has no effect on
+   an inline box, so without it every work drew at full column width and the
+   relative scale — the one thing this design exists to say — silently did not
+   happen. */
+.work-scaled { display: block; width: var(--w); max-width: 100%; }
 .work img { width: 100%; }
 
 .work-label {
@@ -246,8 +235,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .work-line { margin-top: var(--s1); }
 .work-more { display: inline-block; margin-top: var(--s3); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
 
-.works .work:nth-child(even) .work-scaled { margin-left: auto; }
-@media (max-width: 700px) { .works .work:nth-child(even) .work-scaled { margin-left: 0; } }
+/* Centred rather than alternating left and right. With 26 works at widths from
+   26% to 100%, the zigzag read as raggedness; a centred column lets the size
+   differences show as rhythm and keeps a still axis down the page. */
+.works .work-scaled { margin-inline: auto; }
 
 .status { display: inline-flex; align-items: center; gap: var(--s1); }
 .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; }
