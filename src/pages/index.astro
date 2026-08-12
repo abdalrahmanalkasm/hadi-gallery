@@ -15,6 +15,14 @@ const bySlug = Object.fromEntries(works.map((w) => [w.slug, w]));
 
 const largest = Math.max(...paintings.map((w) => widthCm(w.dimensions) || 0));
 const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
+
+/**
+ * How many works each section shows here. The rest are one click away on the
+ * section's own page. Fifty-five works at full width is a very long scroll,
+ * and this page's job is to make a stranger understand the artist in ten
+ * seconds — a taste of each material does that; the whole catalogue does not.
+ */
+const PREVIEW = 4;
 ---
 
 <Base>
@@ -66,8 +74,11 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
         <p class="t-body quiet">Dimensions are given under each work. They run from 25 cm across to 220 cm.</p>
       </div>
       <div class="works">
-        {paintings.map((w, i) => <Work work={w} eager={i === 0} />)}
+        {paintings.slice(0, PREVIEW).map((w, i) => <Work work={w} eager={i === 0} />)}
       </div>
+      {paintings.length > PREVIEW && (
+        <a class="see-all data accent" href="/paintings/">See all {paintings.length} paintings →</a>
+      )}
     </div>
   </section>
 
@@ -80,8 +91,11 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
         <p class="t-body quiet">Each sheet is pulled by hand, so no two are identical.</p>
       </div>
       <div class="works-flow">
-        {prints.map((w) => <Work work={w} />)}
+        {prints.slice(0, PREVIEW).map((w) => <Work work={w} />)}
       </div>
+      {prints.length > PREVIEW && (
+        <a class="see-all data accent" href="/prints/">See all {prints.length} prints →</a>
+      )}
     </div>
   </section>
 
@@ -94,8 +108,11 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
         <p class="t-body quiet">Made quickly, on paper and card.</p>
       </div>
       <div class="works-flow">
-        {studies.map((w) => <Work work={w} />)}
+        {studies.slice(0, PREVIEW).map((w) => <Work work={w} />)}
       </div>
+      {studies.length > PREVIEW && (
+        <a class="see-all data accent" href="/studies/">See all {studies.length} studies →</a>
+      )}
     </div>
   </section>
 
@@ -108,8 +125,11 @@ const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
         <p class="t-body quiet">Graphite on paper, worked up in close detail. Each is signed and dated on the sheet.</p>
       </div>
       <div class="works">
-        {portraits.map((w) => <Work work={w} />)}
+        {portraits.slice(0, PREVIEW).map((w) => <Work work={w} />)}
       </div>
+      {portraits.length > PREVIEW && (
+        <a class="see-all data accent" href="/portraits/">See all {portraits.length} portraits →</a>
+      )}
     </div>
   </section>
 

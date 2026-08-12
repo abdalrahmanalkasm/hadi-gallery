@@ -1,0 +1,67 @@
+---
+/**
+ * One page per section, holding every work in it.
+ *
+ * The home page shows a handful from each section and links here for the rest.
+ * A real page rather than a "show more" button: it gives each section a URL a
+ * gallerist can send on its own, it keeps the back button meaning what it
+ * normally means, and it needs no JavaScript — all three of which a toggle
+ * would have cost.
+ */
+import Base from '../layouts/Base.astro';
+import Work from '../components/Work.astro';
+import data from '../data/works.json';
+
+export const SECTIONS = [
+  { id: 'paintings', label: 'Paintings', heading: 'Oil on canvas' },
+  { id: 'prints',    label: 'Prints',    heading: 'Etching' },
+  { id: 'studies',   label: 'Studies',   heading: 'Ink, graphite, charcoal' },
+  { id: 'portraits', label: 'Portraits', heading: 'Graphite on paper' },
+];
+
+const GROUNDS = {
+  paintings: 'g-paper',
+  prints: 'g-ink',
+  studies: 'g-pale',
+  portraits: 'g-ochre',
+};
+
+export function getStaticPaths() {
+  return SECTIONS.map((s, i) => ({
+    params: { section: s.id },
+    props: {
+      section: s,
+      works: data.works.filter((w) => w.section === s.id),
+      prev: SECTIONS[(i - 1 + SECTIONS.length) % SECTIONS.length],
+      next: SECTIONS[(i + 1) % SECTIONS.length],
+    },
+  }));
+}
+
+const { section, works, prev, next } = Astro.props;
+---
+
+<Base
+  title={section.label}
+  description={`${works.length} works — ${section.heading.toLowerCase()} by Hadi Alkawkgi.`}
+>
+  <section class={`band wp ${GROUNDS[section.id]}`} id={section.id}>
+    <div class="wrap">
+      <a class="wp-back data accent" href={`/#${section.id}`}>Back to the front page</a>
+
+      <div class="opener rv">
+        <span class="data">{section.label} &nbsp;·&nbsp; {works.length}</span>
+        <h1 class="t-section">{section.heading}</h1>
+      </div>
+
+      <div class="works">
+        {works.map((w, i) => <Work work={w} eager={i === 0} />)}
+      </div>
+
+      <nav class="wp-nav t-small">
+        <a href={`/${prev.id}/`}>← {prev.label}</a>
+        <a href={`/${next.id}/`}>{next.label} →</a>
+      </nav>
+    </div>
+  </section>
+</Base>

@@ -65,6 +65,12 @@ the email enquiry.
 - **No CSS framework.** Plain CSS with custom properties in `src/styles/global.css`.
 - **No UI component library.** No React, Vue, or Svelte islands.
 - **No client-side router.** Every page is a real HTML file.
+- Pages: the front page, one per section (`/paintings/`, `/prints/`, `/studies/`,
+  `/portraits/`, from `src/pages/[section].astro`), and one per work. The front
+  page shows the first `PREVIEW` works of each section and links to the section
+  page for the rest — a real page rather than a "show more" toggle, so each
+  section has a URL that can be sent on its own, the back button keeps its
+  ordinary meaning, and no JavaScript is involved.
 - Client JavaScript is limited to four things, all in `src/layouts/Base.astro`:
   mobile menu toggle, `IntersectionObserver` scroll reveal, exhibition accordion,
   and the work-page lightbox. If a new feature needs more JS than that, raise it

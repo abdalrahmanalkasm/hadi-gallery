@@ -23,7 +23,9 @@ const statusLabel = { available: 'Available', sold: 'Sold', nfs: 'Not for sale' 
 >
   <article class="band wp g-paper">
     <div class="wrap">
-      <a class="wp-back data accent" href={`/#${work.section}`}>Back to {sectionLabel}</a>
+      {/* The section's own page, not the front page's anchor — that shows only
+          the first few, so it is not where the reader was. */}
+      <a class="wp-back data accent" href={`/${work.section}/`}>Back to {sectionLabel}</a>
 
       <div class="wp-lead">
         <figure style="margin:0" class="rv">

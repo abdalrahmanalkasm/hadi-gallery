@@ -242,6 +242,18 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .work-line { margin-top: var(--s1); }
 .work-more { display: inline-block; margin-top: var(--s3); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
 
+/* The way on to the rest of a section. Sized as a real target rather than a
+   line of text, since on the front page it is the main thing a reader who
+   wants more is looking for. */
+.see-all {
+  display: block; width: fit-content; margin: var(--s6) auto 0;
+  padding: var(--s3) var(--s4);
+  border: 1px solid currentColor;
+  transition: background .22s, color .22s;
+}
+.see-all:hover { background: var(--ochre); color: var(--paper); border-color: var(--ochre); }
+.g-ink .see-all:hover { background: var(--ochre); color: var(--ink); }
+
 
 .status { display: inline-flex; align-items: center; gap: var(--s1); }
 .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; }
