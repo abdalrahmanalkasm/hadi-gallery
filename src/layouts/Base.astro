@@ -35,7 +35,7 @@ const desc = description ?? `${a.discipline} in ${a.location}. ${a.heroLine}`;
   <main id="main"><slot /></main>
 
   <dialog class="lb" aria-label="Full size view">
-    <div class="lb-scroll"><img alt="" /></div>
+    <div class="lb-scroll"><div class="lb-canvas"><img alt="" /></div></div>
     <div class="lb-bar">
       <p class="lb-cap data t-small"></p>
       <button class="lb-close data t-small" type="button">Close</button>
@@ -184,9 +184,11 @@ const desc = description ?? `${a.discipline} in ${a.location}. ${a.heroLine}`;
 
       // The padding around the image is the only safe place to click away —
       // and only if the press was a click, not a pan that overshot the edge.
+      // e.target is .lb-scroll or .lb-canvas, its sizing wrapper, never the
+      // image itself, which is what keeps a click on the image from closing.
       scroll.addEventListener('click', (e) => {
         if (dragged) { dragged = false; return; }
-        if (e.target === scroll) lb.close();
+        if (e.target !== lbImg) lb.close();
       });
       lb.querySelector('.lb-close').addEventListener('click', () => lb.close());
       lb.addEventListener('close', () => {
