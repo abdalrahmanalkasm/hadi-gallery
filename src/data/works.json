@@ -561,7 +561,9 @@
       "dimensions": "100 × 80 cm",
       "status": "nfs",
       "image": "etching-01.jpg",
-      "details": [],
+      "details": [
+        "etching-01-d1.jpg"
+      ],
       "note": "",
       "_pending": [
         "title",
@@ -574,7 +576,7 @@
       "slug": "etching-02",
       "cat": "28",
       "title": "Etching 02",
-      "year": 2022,
+      "year": 2026,
       "section": "prints",
       "medium": "Etching on paper",
       "code": "ETCH/PPR",
@@ -591,28 +593,8 @@
       ]
     },
     {
-      "slug": "etching-03",
-      "cat": "29",
-      "title": "Etching 03",
-      "year": 2026,
-      "section": "prints",
-      "medium": "Etching on paper",
-      "code": "ETCH/PPR",
-      "dimensions": "100 × 80 cm",
-      "status": "nfs",
-      "image": "etching-03.jpg",
-      "details": [],
-      "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
-    },
-    {
       "slug": "charcoal-pencil",
-      "cat": "30",
+      "cat": "29",
       "title": "Charcoal Pencil",
       "year": 2023,
       "section": "studies",
@@ -636,7 +618,7 @@
     },
     {
       "slug": "ink-black-01",
-      "cat": "31",
+      "cat": "30",
       "title": "Ink Black 01",
       "year": 2026,
       "section": "studies",
@@ -656,7 +638,7 @@
     },
     {
       "slug": "ink-black-02",
-      "cat": "32",
+      "cat": "31",
       "title": "Ink Black 02",
       "year": 2024,
       "section": "studies",
@@ -676,7 +658,7 @@
     },
     {
       "slug": "ink-black-03",
-      "cat": "33",
+      "cat": "32",
       "title": "Ink Black 03",
       "year": 2023,
       "section": "studies",
@@ -698,7 +680,7 @@
     },
     {
       "slug": "ink-black-04",
-      "cat": "34",
+      "cat": "33",
       "title": "Ink Black 04",
       "year": 2023,
       "section": "studies",
@@ -721,7 +703,7 @@
     },
     {
       "slug": "ink-black-05",
-      "cat": "35",
+      "cat": "34",
       "title": "Ink Black 05",
       "year": 2023,
       "section": "studies",
@@ -743,7 +725,7 @@
     },
     {
       "slug": "ink-black-06",
-      "cat": "36",
+      "cat": "35",
       "title": "Ink Black 06",
       "year": 2023,
       "section": "studies",
@@ -765,7 +747,7 @@
     },
     {
       "slug": "ink-blue-01",
-      "cat": "37",
+      "cat": "36",
       "title": "Ink Blue 01",
       "year": 2022,
       "section": "studies",
@@ -787,7 +769,7 @@
     },
     {
       "slug": "ink-blue-02",
-      "cat": "38",
+      "cat": "37",
       "title": "Ink Blue 02",
       "year": 2022,
       "section": "studies",
@@ -809,7 +791,7 @@
     },
     {
       "slug": "ink-blue-03",
-      "cat": "39",
+      "cat": "38",
       "title": "Ink Blue 03",
       "year": 2022,
       "section": "studies",
@@ -831,7 +813,7 @@
     },
     {
       "slug": "ink-blue-04",
-      "cat": "40",
+      "cat": "39",
       "title": "Ink Blue 04",
       "year": 2026,
       "section": "studies",
@@ -853,7 +835,7 @@
     },
     {
       "slug": "ink-blue-05",
-      "cat": "41",
+      "cat": "40",
       "title": "Ink Blue 05",
       "year": 2023,
       "section": "studies",
@@ -873,7 +855,7 @@
     },
     {
       "slug": "oil-sketch-01",
-      "cat": "42",
+      "cat": "41",
       "title": "Oil Sketch 01",
       "year": 2026,
       "section": "studies",
@@ -893,7 +875,7 @@
     },
     {
       "slug": "oil-sketch-02",
-      "cat": "43",
+      "cat": "42",
       "title": "Oil Sketch 02",
       "year": 2026,
       "section": "studies",
@@ -913,7 +895,7 @@
     },
     {
       "slug": "pencil-01",
-      "cat": "44",
+      "cat": "43",
       "title": "Pencil 01",
       "year": 2026,
       "section": "studies",
@@ -935,7 +917,7 @@
     },
     {
       "slug": "pencil-02",
-      "cat": "45",
+      "cat": "44",
       "title": "Pencil 02",
       "year": 2023,
       "section": "studies",
@@ -955,7 +937,7 @@
     },
     {
       "slug": "pencil-03",
-      "cat": "46",
+      "cat": "45",
       "title": "Pencil 03",
       "year": 2026,
       "section": "studies",
@@ -975,7 +957,7 @@
     },
     {
       "slug": "pencil-04",
-      "cat": "47",
+      "cat": "46",
       "title": "Pencil 04",
       "year": 2025,
       "section": "studies",
@@ -995,7 +977,7 @@
     },
     {
       "slug": "pencil-05",
-      "cat": "48",
+      "cat": "47",
       "title": "Pencil 05",
       "year": 2026,
       "section": "studies",
@@ -1015,7 +997,7 @@
     },
     {
       "slug": "pencil-06",
-      "cat": "49",
+      "cat": "48",
       "title": "Pencil 06",
       "year": 2024,
       "section": "studies",
@@ -1035,7 +1017,7 @@
     },
     {
       "slug": "pencil-07",
-      "cat": "50",
+      "cat": "49",
       "title": "Pencil 07",
       "year": 2023,
       "section": "studies",
@@ -1055,7 +1037,7 @@
     },
     {
       "slug": "pencil-08",
-      "cat": "51",
+      "cat": "50",
       "title": "Pencil 08",
       "year": 2023,
       "section": "studies",
@@ -1075,7 +1057,7 @@
     },
     {
       "slug": "portrait-01",
-      "cat": "52",
+      "cat": "51",
       "title": "Portrait 01",
       "year": 2022,
       "section": "portraits",
@@ -1094,7 +1076,7 @@
     },
     {
       "slug": "portrait-02",
-      "cat": "53",
+      "cat": "52",
       "title": "Portrait 02",
       "year": 2020,
       "section": "portraits",
@@ -1113,7 +1095,7 @@
     },
     {
       "slug": "portrait-03",
-      "cat": "54",
+      "cat": "53",
       "title": "Portrait 03",
       "year": 2023,
       "section": "portraits",
@@ -1132,7 +1114,7 @@
     },
     {
       "slug": "portrait-04",
-      "cat": "55",
+      "cat": "54",
       "title": "Portrait 04",
       "year": 2024,
       "section": "portraits",
