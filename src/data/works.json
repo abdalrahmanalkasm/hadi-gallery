@@ -1,15 +1,15 @@
 {
-  "_comment": "Add a new artwork by copying one object and changing the values. 'section' must be one of: paintings | prints | studies | portraits. 'status' must be one of: available | sold | nfs. IMPORTANT: every entry carrying a '_pending' key still has placeholder values for the fields it lists — real titles, years, dimensions and availability must come from the artist before this site is published. Dimensions drive the scale of every work on the page, so uniform placeholder sizes make all works render at the same width.",
+  "_comment": "Add a new artwork by copying one object and changing the values. 'section' must be one of: paintings | prints | studies | portraits. 'status' must be one of: available | sold | nfs. 'dimensions' is always width × height — scale.js reads the first number and it drives how wide the work is drawn on the page. Any entry with a '_pending' key still has placeholder values for the fields it lists. '_priceUsd' is never displayed; the site quotes no prices and sends enquiries to email.",
   "works": [
     {
       "slug": "painting-01",
       "cat": "01",
-      "title": "Painting 01",
-      "year": 2025,
+      "title": "Inward",
+      "year": 2026,
       "section": "paintings",
-      "medium": "Oil on canvas",
-      "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
+      "medium": "Oil on wood",
+      "code": "OIL/WD",
+      "dimensions": "38 × 55 cm",
       "status": "available",
       "image": "painting-01.jpg",
       "details": [
@@ -19,24 +19,19 @@
         "painting-01-d4.jpg",
         "painting-01-d5.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
+      "note": "Self-portrait.",
+      "_priceUsd": 900
     },
     {
       "slug": "painting-02",
       "cat": "02",
-      "title": "Painting 02",
+      "title": "An Old Woman Weighing Gold",
       "year": 2025,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "75 × 95 cm",
+      "status": "sold",
       "image": "painting-02.jpg",
       "details": [
         "painting-02-d1.jpg",
@@ -52,24 +47,18 @@
         "painting-02-d11.jpg",
         "painting-02-d12.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
+      "note": "A study after the original painting."
     },
     {
       "slug": "painting-03",
       "cat": "03",
-      "title": "Painting 03",
+      "title": "Traces of Memory",
       "year": 2025,
       "section": "paintings",
-      "medium": "Oil on canvas",
-      "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "medium": "Oil on wood",
+      "code": "OIL/WD",
+      "dimensions": "59.5 × 39.5 cm",
+      "status": "sold",
       "image": "painting-03.jpg",
       "details": [
         "painting-03-d1.jpg",
@@ -79,23 +68,17 @@
         "painting-03-d5.jpg",
         "painting-03-d6.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
+      "note": ""
     },
     {
       "slug": "painting-04",
       "cat": "04",
-      "title": "Painting 04",
-      "year": 2024,
+      "title": "An Old Man",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
+      "dimensions": "50 × 70 cm",
       "status": "available",
       "image": "painting-04.jpg",
       "details": [
@@ -103,45 +86,38 @@
         "painting-04-d2.jpg",
         "painting-04-d3.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
+      "note": "A study after the original by Rembrandt van Rijn.",
+      "_priceUsd": 600
     },
     {
       "slug": "painting-05",
       "cat": "05",
-      "title": "Painting 05",
+      "title": "Untitled",
       "year": 2025,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
+      "dimensions": "120 × 90 cm",
       "status": "available",
       "image": "painting-05.jpg",
       "details": [
         "painting-05-d1.jpg"
       ],
-      "note": "",
+      "note": "A study after the original painting.",
+      "_priceUsd": 500,
       "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
+        "title"
       ]
     },
     {
       "slug": "painting-06",
       "cat": "06",
-      "title": "Painting 06",
-      "year": 2026,
+      "title": "Untitled",
+      "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
+      "dimensions": "63 × 85 cm",
       "status": "available",
       "image": "painting-06.jpg",
       "details": [
@@ -149,24 +125,22 @@
         "painting-06-d2.jpg",
         "painting-06-d3.jpg"
       ],
-      "note": "",
+      "note": "A study after the original painting.",
+      "_priceUsd": 500,
       "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
+        "title"
       ]
     },
     {
       "slug": "painting-07",
       "cat": "07",
-      "title": "Painting 07",
-      "year": 2024,
+      "title": "After the Light",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "100 × 120 cm",
+      "status": "sold",
       "image": "painting-07.jpg",
       "details": [
         "painting-07-d1.jpg",
@@ -176,68 +150,50 @@
         "painting-07-d5.jpg",
         "painting-07-d6.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
+      "note": "Self-portrait."
     },
     {
       "slug": "painting-08",
       "cat": "08",
-      "title": "Painting 08",
+      "title": "White",
       "year": 2025,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "100 × 70 cm",
+      "status": "sold",
       "image": "painting-08.jpg",
       "details": [
         "painting-08-d1.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
+      "note": ""
     },
     {
       "slug": "painting-09",
       "cat": "09",
-      "title": "Painting 09",
-      "year": 2024,
+      "title": "The View",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "80 × 100 cm",
+      "status": "sold",
       "image": "painting-09.jpg",
       "details": [
         "painting-09-d1.jpg",
         "painting-09-d2.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
+      "note": ""
     },
     {
       "slug": "painting-10",
       "cat": "10",
-      "title": "Painting 10",
-      "year": 2024,
+      "title": "Dialogue in the Night's Shadow: The Painting That Refuses to Dry",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
+      "dimensions": "200 × 150 cm",
       "status": "available",
       "image": "painting-10.jpg",
       "details": [
@@ -250,46 +206,35 @@
         "painting-10-d7.jpg"
       ],
       "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
+      "_priceUsd": 1500
     },
     {
       "slug": "painting-11",
       "cat": "11",
-      "title": "Painting 11",
-      "year": 2025,
+      "title": "A Bite",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "80 × 100 cm",
+      "status": "sold",
       "image": "painting-11.jpg",
       "details": [
         "painting-11-d1.jpg",
         "painting-11-d2.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "dimensions",
-        "status",
-        "year"
-      ]
+      "note": ""
     },
     {
       "slug": "painting-12",
       "cat": "12",
-      "title": "Painting 12",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "70 × 100 cm",
+      "status": "nfs",
       "image": "painting-12.jpg",
       "details": [
         "painting-12-d1.jpg",
@@ -300,21 +245,20 @@
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-13",
       "cat": "13",
-      "title": "Painting 13",
-      "year": 2025,
+      "title": "Untitled",
+      "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "220 × 224 cm",
+      "status": "nfs",
       "image": "painting-13.jpg",
       "details": [
         "painting-13-d1.jpg",
@@ -330,21 +274,19 @@
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "status"
       ]
     },
     {
       "slug": "painting-14",
       "cat": "14",
-      "title": "Painting 14",
-      "year": 2026,
+      "title": "Untitled",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "50 × 35 cm",
+      "status": "nfs",
       "image": "painting-14.jpg",
       "details": [
         "painting-14-d1.jpg"
@@ -352,21 +294,19 @@
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "status"
       ]
     },
     {
       "slug": "painting-15",
       "cat": "15",
-      "title": "Painting 15",
+      "title": "Untitled",
       "year": 2026,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "70 × 100 cm",
+      "status": "nfs",
       "image": "painting-15.jpg",
       "details": [
         "painting-15-d1.jpg",
@@ -376,21 +316,20 @@
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-16",
       "cat": "16",
-      "title": "Painting 16",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "85 × 180 cm",
+      "status": "nfs",
       "image": "painting-16.jpg",
       "details": [
         "painting-16-d1.jpg",
@@ -401,21 +340,20 @@
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-17",
       "cat": "17",
-      "title": "Painting 17",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "100 × 140 cm",
+      "status": "nfs",
       "image": "painting-17.jpg",
       "details": [
         "painting-17-d1.jpg",
@@ -427,21 +365,20 @@
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-18",
       "cat": "18",
-      "title": "Painting 18",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "70 × 100 cm",
+      "status": "nfs",
       "image": "painting-18.jpg",
       "details": [
         "painting-18-d1.jpg",
@@ -453,21 +390,20 @@
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-19",
       "cat": "19",
-      "title": "Painting 19",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "70 × 100 cm",
+      "status": "nfs",
       "image": "painting-19.jpg",
       "details": [
         "painting-19-d1.jpg",
@@ -476,21 +412,20 @@
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-20",
       "cat": "20",
-      "title": "Painting 20",
+      "title": "Untitled",
       "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "180 × 150 cm",
+      "status": "nfs",
       "image": "painting-20.jpg",
       "details": [
         "painting-20-d1.jpg"
@@ -498,129 +433,121 @@
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-21",
       "cat": "21",
-      "title": "Painting 21",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "50 × 50 cm",
+      "status": "nfs",
       "image": "painting-21.jpg",
       "details": [],
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-22",
       "cat": "22",
-      "title": "Painting 22",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "42 × 56 cm",
+      "status": "nfs",
       "image": "painting-22.jpg",
       "details": [],
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-23",
       "cat": "23",
-      "title": "Painting 23",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "45 × 65 cm",
+      "status": "nfs",
       "image": "painting-23.jpg",
       "details": [],
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-24",
       "cat": "24",
-      "title": "Painting 24",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "56 × 42 cm",
+      "status": "nfs",
       "image": "painting-24.jpg",
       "details": [],
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-25",
       "cat": "25",
-      "title": "Painting 25",
+      "title": "Untitled",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "52 × 72 cm",
+      "status": "nfs",
       "image": "painting-25.jpg",
       "details": [],
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "year",
+        "status"
       ]
     },
     {
       "slug": "painting-26",
       "cat": "26",
-      "title": "Painting 26",
-      "year": 2023,
+      "title": "Untitled",
+      "year": 2021,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
-      "dimensions": "100 × 80 cm",
-      "status": "available",
+      "dimensions": "10 × 25 cm",
+      "status": "nfs",
       "image": "painting-26.jpg",
       "details": [],
       "note": "",
       "_pending": [
         "title",
-        "dimensions",
-        "status",
-        "year"
+        "status"
       ]
     },
     {
@@ -632,7 +559,7 @@
       "medium": "Etching on paper",
       "code": "ETCH/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "etching-01.jpg",
       "details": [],
       "note": "",
@@ -652,7 +579,7 @@
       "medium": "Etching on paper",
       "code": "ETCH/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "etching-02.jpg",
       "details": [],
       "note": "",
@@ -672,7 +599,7 @@
       "medium": "Etching on paper",
       "code": "ETCH/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "etching-03.jpg",
       "details": [],
       "note": "",
@@ -692,7 +619,7 @@
       "medium": "Charcoal and graphite on paper",
       "code": "CHR/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "charcoal-pencil.jpg",
       "details": [
         "charcoal-pencil-d1.jpg",
@@ -716,7 +643,7 @@
       "medium": "Chinese ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-black-01.jpg",
       "details": [],
       "note": "",
@@ -736,7 +663,7 @@
       "medium": "Chinese ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-black-02.jpg",
       "details": [],
       "note": "",
@@ -756,7 +683,7 @@
       "medium": "Chinese ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-black-03.jpg",
       "details": [
         "ink-black-03-d1.jpg"
@@ -778,7 +705,7 @@
       "medium": "Chinese ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-black-04.jpg",
       "details": [
         "ink-black-04-d1.jpg",
@@ -801,7 +728,7 @@
       "medium": "Chinese ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-black-05.jpg",
       "details": [
         "ink-black-05-d1.jpg"
@@ -823,7 +750,7 @@
       "medium": "Chinese ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-black-06.jpg",
       "details": [
         "ink-black-06-d1.jpg"
@@ -845,7 +772,7 @@
       "medium": "Blue ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-blue-01.jpg",
       "details": [
         "ink-blue-01-d1.jpg"
@@ -867,7 +794,7 @@
       "medium": "Blue ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-blue-02.jpg",
       "details": [
         "ink-blue-02-d1.jpg"
@@ -889,7 +816,7 @@
       "medium": "Blue ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-blue-03.jpg",
       "details": [
         "ink-blue-03-d1.jpg"
@@ -911,7 +838,7 @@
       "medium": "Blue ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-blue-04.jpg",
       "details": [
         "ink-blue-04-d1.jpg"
@@ -933,7 +860,7 @@
       "medium": "Blue ink on card",
       "code": "INK/CARD",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "ink-blue-05.jpg",
       "details": [],
       "note": "",
@@ -953,7 +880,7 @@
       "medium": "Oil on prepared card",
       "code": "OIL/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "oil-sketch-01.jpg",
       "details": [],
       "note": "",
@@ -973,7 +900,7 @@
       "medium": "Oil on prepared card",
       "code": "OIL/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "oil-sketch-02.jpg",
       "details": [],
       "note": "",
@@ -993,7 +920,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "pencil-01.jpg",
       "details": [
         "pencil-01-d1.jpg"
@@ -1015,7 +942,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "pencil-02.jpg",
       "details": [],
       "note": "",
@@ -1035,7 +962,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "pencil-03.jpg",
       "details": [],
       "note": "",
@@ -1055,7 +982,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "pencil-04.jpg",
       "details": [],
       "note": "",
@@ -1075,7 +1002,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "pencil-05.jpg",
       "details": [],
       "note": "",
@@ -1095,7 +1022,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "pencil-06.jpg",
       "details": [],
       "note": "",
@@ -1115,7 +1042,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "pencil-07.jpg",
       "details": [],
       "note": "",
@@ -1135,7 +1062,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "pencil-08.jpg",
       "details": [],
       "note": "",
@@ -1155,7 +1082,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "portrait-01.jpg",
       "details": [],
       "note": "",
@@ -1174,7 +1101,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "portrait-02.jpg",
       "details": [],
       "note": "",
@@ -1193,7 +1120,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "portrait-03.jpg",
       "details": [],
       "note": "",
@@ -1212,7 +1139,7 @@
       "medium": "Graphite on paper",
       "code": "GRA/PPR",
       "dimensions": "100 × 80 cm",
-      "status": "available",
+      "status": "nfs",
       "image": "portrait-04.jpg",
       "details": [],
       "note": "",
