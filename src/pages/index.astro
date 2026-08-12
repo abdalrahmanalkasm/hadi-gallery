@@ -13,8 +13,15 @@ const studies = works.filter((w) => w.section === 'studies');
 const portraits = works.filter((w) => w.section === 'portraits');
 const bySlug = Object.fromEntries(works.map((w) => [w.slug, w]));
 
-const largest = Math.max(...paintings.map((w) => widthCm(w.dimensions) || 0));
-const smallest = Math.min(...studies.map((w) => widthCm(w.dimensions) || 999));
+/**
+ * Largest/smallest in the hero must come from the same pool of works, and
+ * only from works whose dimensions are real. Pulling "largest" from paintings
+ * and "smallest" from studies — the previous version — paired a real 220 cm
+ * with a placeholder 100 cm and presented them as one range.
+ */
+const sized = works.filter((w) => !w._pending?.includes('dimensions'));
+const largest = Math.max(...sized.map((w) => widthCm(w.dimensions) || 0));
+const smallest = Math.min(...sized.map((w) => widthCm(w.dimensions) || Infinity));
 
 /**
  * How many works each section shows here. The rest are one click away on the

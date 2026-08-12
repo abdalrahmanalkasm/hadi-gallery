@@ -32,7 +32,11 @@
   --on-ink:       #EFEBE3;
   --on-ink-quiet: #9A948A;
   --on-ochre:     #191308;
-  --on-ochre-q:   #4A3512;
+  /* Darkened from #4A3512 (2.94:1, fails WCAG AA body text at 4.5:1) to
+     #20150A (4.53:1). Ochre is a mid-luminance ground, so there is very
+     little room between "quiet" and "full strength" that still clears AA —
+     this is close to --on-ochre by necessity, not by accident. */
+  --on-ochre-q:   #20150A;
   --on-pale:      #241B0D;
   --on-pale-q:    #6A5834;
 
