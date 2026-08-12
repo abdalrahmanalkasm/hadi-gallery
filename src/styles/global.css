@@ -40,6 +40,19 @@
   --on-pale:      #241B0D;
   --on-pale-q:    #6A5834;
 
+  /* Gradient ends. Each is the same hue and saturation as the ground it
+     belongs to, moved only in lightness — so no fourth colour enters the
+     palette, the grounds simply stop being dead flat.
+
+     The ochre end is lighter, never darker, and that direction is forced:
+     text on ochre already sits at 4.53:1, barely over AA, so darkening the
+     ground to #916525 would drop body text to 3.60:1 and fail. Lightening to
+     #C18731 takes it to 5.96:1 instead. Ochre is the one ground here with no
+     headroom in that direction — check before moving it. */
+  --ink-lift:  #1F1F1F;   /* body text 13.86:1, quiet 5.48:1 */
+  --ochre-up:  #C18731;   /* body text  5.96:1, quiet 5.78:1 */
+  --pale-up:   #EEE5D2;   /* body text 13.55:1, quiet 5.48:1 */
+
   --read: "Newsreader", Georgia, "Times New Roman", serif;
   --data: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -84,13 +97,38 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- ground ---------- */
 
-.band { padding: var(--band) var(--gutter); }
+.band { position: relative; padding: var(--band) var(--gutter); }
 .wrap { max-width: var(--col); margin-inline: auto; }
 
-.g-ink   { background: var(--ink);        color: var(--on-ink); }
-.g-paper { background: var(--paper);      color: var(--ink); }
-.g-ochre { background: var(--ochre);      color: var(--on-ochre); }
-.g-pale  { background: var(--ochre-pale); color: var(--on-pale); }
+/* A hairline of the ochre at every seam between bands. Eight grounds meeting
+   at hard edges is what made the page read as stacked blocks; this gives each
+   join a drawn line instead of a collision, and ochre is already the colour
+   that marks structure everywhere else on the site.
+
+   Fades out at both ends so it reads as a rule the page was set to, not a
+   border box. Decorative, so it is a pseudo-element and never lands in the
+   accessibility tree. */
+.band + .band::before,
+.band + footer.band::before {
+  content: "";
+  position: absolute; inset-inline: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ochre) 22%, var(--ochre) 78%, transparent);
+  opacity: .5;
+}
+
+/* Each ground is lit rather than flat: the light enters at the top, the way
+   it does on a gallery wall, and falls off down the band. The travel is one
+   step of lightness in the ground's own hue — enough that eight stacked
+   sections stop reading as eight flat blocks, not enough to notice as a
+   gradient. `background-color` stays declared underneath so the ground still
+   has a solid value if the gradient is ever unsupported or overridden.
+
+   Paper is left alone. White has nowhere to go but grey, and a grey cast
+   behind the paintings would tint every work sitting on it. */
+.g-ink   { background-color: var(--ink);        background-image: linear-gradient(var(--ink-lift), var(--ink) 62%);        color: var(--on-ink); }
+.g-paper { background-color: var(--paper);                                                                                 color: var(--ink); }
+.g-ochre { background-color: var(--ochre);      background-image: linear-gradient(var(--ochre-up), var(--ochre) 58%);      color: var(--on-ochre); }
+.g-pale  { background-color: var(--ochre-pale); background-image: linear-gradient(var(--pale-up), var(--ochre-pale) 58%);  color: var(--on-pale); }
 
 .quiet { color: var(--stone); }
 .g-ink   .quiet { color: var(--on-ink-quiet); }
@@ -187,7 +225,21 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- hero ---------- */
 
-.hero { padding-top: calc(var(--band) + 44px); }
+/* A single soft source at the upper left, falling off across the band — the
+   same raking light the paintings themselves are lit by, and the subject the
+   artist says he works on. It sits over the band's own linear gradient, so
+   the ink still darkens downward underneath it.
+
+   Kept to one step of lightness and pushed out to 70% of the viewport so
+   there is no visible edge: it should read as the wall being lit unevenly,
+   not as a shape drawn on the page. Text over it clears AA at either end —
+   13.86:1 at the lightest point. */
+.hero {
+  padding-top: calc(var(--band) + 44px);
+  background-image:
+    radial-gradient(70% 55% at 18% 0%, var(--ink-lift), transparent 70%),
+    linear-gradient(var(--ink-lift), var(--ink) 62%);
+}
 .hero-name { color: #F7F4EE; max-width: 14ch; }
 .hero-sub { margin: var(--s4) 0 0; max-width: 46ch; font-size: var(--t-m); color: var(--on-ink-quiet); }
 .hero-figure { margin: var(--s6) 0 0; }

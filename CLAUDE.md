@@ -140,6 +140,18 @@ Grounds are applied with `.g-ink`, `.g-paper`, `.g-ochre`, `.g-pale`. Each also
 sets `.quiet` and `.accent` colours so contrast stays correct automatically. Use
 those classes rather than writing new background rules.
 
+Each ground carries a one-step vertical gradient — lighter at the top, as if
+lit from above — plus a fading ochre hairline at every seam between bands. This
+is still three colours: the gradient ends (`--ink-lift`, `--ochre-up`,
+`--pale-up`) are the same hue and saturation as their ground, moved only in
+lightness. Paper is deliberately left flat; white has nowhere to go but grey,
+and a grey cast would tint every painting sitting on it.
+
+**The ochre gradient must run lighter, never darker.** Text on ochre sits at
+4.53:1, barely over AA, so darkening that ground fails immediately — one step
+down puts body text at 3.60:1. Lightening takes it to 5.96:1. Ochre is the only
+ground with no headroom downward; check contrast before moving it.
+
 Type, two faces only:
 
 - **Newsreader** — everything a person reads. Name, section titles, work
