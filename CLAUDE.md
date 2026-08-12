@@ -195,7 +195,12 @@ button that opened it are the element's own behaviour rather than script.
 Zoom runs from the fitted size up to one screen pixel per image pixel and no
 further — past that the photograph has no more detail, only blur. The wheel
 zooms anchored on the pointer, click toggles fitted against full, and `+`/`-`
-/`0` do the same from the keyboard. Dragging pans, mouse only — a touch screen
+/`0` do the same from the keyboard.
+
+Opening any image steps through the whole set for that work — the lead image
+then its details, wrapping at both ends — via the bottom bar or the arrow keys.
+The arrows only navigate while fitted; once zoomed they belong to the scroll
+box, where they are panning. The bar hides itself for a work with one image. Dragging pans, mouse only — a touch screen
 already pans and pinches by itself and hijacking that makes it worse. A press
 that travels more than a few pixels counts as a drag, anything shorter stays a
 click, which is what lets one button both pan and toggle. Panning sets the

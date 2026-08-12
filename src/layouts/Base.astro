@@ -60,6 +60,14 @@ const shareImage = new URL(image ?? '/og.jpg', Astro.site ?? Astro.url).href;
       <p class="lb-cap data t-small"></p>
       <button class="lb-close data t-small" type="button">Close</button>
     </div>
+    {/* Along the bottom rather than beside the image: it is within thumb reach
+        on a phone and never covers the work. Hidden when a work has only the
+        one image, so it does not offer a move that goes nowhere. */}
+    <div class="lb-nav" hidden>
+      <button class="lb-prev data t-small" type="button" aria-label="Previous image">←</button>
+      <span class="lb-count data t-small" aria-live="polite"></span>
+      <button class="lb-next data t-small" type="button" aria-label="Next image">→</button>
+    </div>
   </dialog>
 
   <script>
@@ -132,18 +140,37 @@ const shareImage = new URL(image ?? '/og.jpg', Astro.site ?? Astro.url).href;
         scroll.scrollTop += now.top + fy * now.height - y;
       }
 
-      document.querySelectorAll('.zoomable').forEach((btn) => {
+      // Every openable image on the page, in the order they appear — the lead
+      // image then its details. Opening any one of them means stepping through
+      // the set rather than closing and reopening to see the next.
+      const openers = [...document.querySelectorAll('.zoomable')];
+      const nav = lb.querySelector('.lb-nav');
+      const count = lb.querySelector('.lb-count');
+      let index = 0;
+
+      function show(i) {
+        index = (i + openers.length) % openers.length;   // wraps, so neither end is a dead stop
+        const img = openers[index].querySelector('img');
+        zoom = 1; fitW = 0;
+        lb.classList.remove('zoomed');
+        lbImg.style.width = '';
+        scroll.scrollTo(0, 0);
+        lbImg.src = img.currentSrc || img.src;
+        lbImg.alt = img.alt;
+        cap.textContent = img.alt;
+        count.textContent = `${index + 1} / ${openers.length}`;
+      }
+
+      openers.forEach((btn, i) => {
         btn.addEventListener('click', () => {
-          const img = btn.querySelector('img');
-          zoom = 1; fitW = 0;
-          lb.classList.remove('zoomed');
-          lbImg.style.width = '';
-          lbImg.src = img.currentSrc || img.src;
-          lbImg.alt = img.alt;
-          cap.textContent = img.alt;
+          nav.hidden = openers.length < 2;
+          show(i);
           lb.showModal();
         });
       });
+
+      lb.querySelector('.lb-prev').addEventListener('click', () => show(index - 1));
+      lb.querySelector('.lb-next').addEventListener('click', () => show(index + 1));
 
       // deltaY is reported in pixels, lines or pages depending on the device;
       // normalise so a trackpad glides and a notched wheel steps about 10%.
@@ -192,11 +219,15 @@ const shareImage = new URL(image ?? '/og.jpg', Astro.site ?? Astro.url).href;
         setZoom(zoom > 1 ? 1 : maxZoom, e.clientX, e.clientY);
       });
 
-      // The wheel is no use to anyone working from the keyboard.
+      // The wheel is no use to anyone working from the keyboard. Arrows step
+      // through the set, but only while fitted — once zoomed in they belong to
+      // the scroll box, where the reader is using them to pan.
       lb.addEventListener('keydown', (e) => {
         if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(zoom * 1.25); }
         else if (e.key === '-') { e.preventDefault(); setZoom(zoom / 1.25); }
         else if (e.key === '0') { e.preventDefault(); setZoom(1); }
+        else if (e.key === 'ArrowLeft' && zoom === 1 && openers.length > 1) { e.preventDefault(); show(index - 1); }
+        else if (e.key === 'ArrowRight' && zoom === 1 && openers.length > 1) { e.preventDefault(); show(index + 1); }
       });
 
       // A resize changes what "fitted" means, so the baseline has to go.

@@ -46,12 +46,17 @@
 
      The ochre end is lighter, never darker, and that direction is forced:
      text on ochre already sits at 4.53:1, barely over AA, so darkening the
-     ground to #916525 would drop body text to 3.60:1 and fail. Lightening to
-     #C18731 takes it to 5.96:1 instead. Ochre is the one ground here with no
-     headroom in that direction — check before moving it. */
-  --ink-lift:  #1F1F1F;   /* body text 13.86:1, quiet 5.48:1 */
-  --ochre-up:  #C18731;   /* body text  5.96:1, quiet 5.78:1 */
-  --pale-up:   #EEE5D2;   /* body text 13.55:1, quiet 5.48:1 */
+     ground to #916525 would drop body text to 3.60:1 and fail. Lightening
+     instead keeps it clear. Ochre is the one ground here with no headroom
+     downward — check before moving it.
+
+     The two warm grounds were first lifted a full step and read as washed
+     out: ochre went pale and the beige lost its warmth. Halved to +3% and
+     +2% — the flatness is still broken but the grounds keep their own
+     colour. Ink can take the full step, being nearly black to start with. */
+  --ink-lift:  #1F1F1F;   /* +6%  body 13.86:1, quiet 5.48:1 */
+  --ochre-up:  #B57F2E;   /* +3%  body  5.31:1, quiet 5.15:1 */
+  --pale-up:   #ECE0CA;   /* +2%  body 12.99:1, quiet 5.26:1 */
 
   --read: "Newsreader", Georgia, "Times New Roman", serif;
   --data: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -415,6 +420,30 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .lb-cap { margin: 0; color: var(--on-ink-quiet); }
 .lb-close { background: none; border: 1px solid rgba(239, 235, 227, 0.3); color: var(--on-ink); padding: var(--s2) var(--s3); cursor: pointer; font: inherit; }
 .lb-close:hover { border-color: var(--ochre); color: var(--ochre); }
+
+/* Stepping between a work's images. Along the bottom because that is where a
+   thumb rests on a phone, and because anything beside the image would sit on
+   top of the work. Buttons are 48px so they are a real target on touch, and
+   they are always visible — the zoom affordance was hover-only once already
+   and was therefore invisible to most of this site's readers. */
+.lb-nav {
+  position: fixed; inset-inline: 0; bottom: 0;
+  display: flex; justify-content: center; align-items: center; gap: var(--s3);
+  padding: var(--s3) var(--s3) var(--s4);
+  background: linear-gradient(transparent, var(--ink));
+  pointer-events: none;
+}
+.lb-nav[hidden] { display: none; }
+.lb-nav > * { pointer-events: auto; }
+.lb-prev,
+.lb-next {
+  min-width: 48px; min-height: 48px;
+  border: 1px solid rgba(239, 235, 227, 0.3);
+  color: var(--on-ink); background: none; cursor: pointer; font: inherit;
+}
+.lb-prev:hover,
+.lb-next:hover { border-color: var(--ochre); color: var(--ochre); }
+.lb-count { color: var(--on-ink-quiet); min-width: 5ch; text-align: center; }
 html:has(.lb[open]) { overflow: hidden; }
 
 /* ---------- reveal ---------- */
