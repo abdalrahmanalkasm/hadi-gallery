@@ -276,10 +276,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (max-width: 840px) { .about { grid-template-columns: 1fr; } }
 
 /* ---------- works ----------
-   One column, every work the same width, stacked down the page. Images keep
-   their own proportions — nothing is cropped to a common shape, because a
-   painting trimmed to fit is a different painting. The column is held well
-   short of the full page so a work is seen whole without moving your head. */
+   One column, stacked down the page, nothing cropped — a painting trimmed to
+   fit is a different painting.
+
+   Each work is bounded on both axes: 820px across, and 72vh tall. Width alone
+   was not enough. A portrait canvas at 820px wide runs past 1,100px tall, so
+   on an ordinary screen the reader met the top half of a painting and had to
+   scroll to find out what the rest of it was — it read as cut off. Capping the
+   height instead means a tall work simply draws narrower and is seen whole.
+   72vh leaves the label in view beneath it, so the work and what it is are
+   read together rather than one after the other. */
 
 .works,
 .works-flow {
@@ -290,8 +296,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   margin-inline: auto;
 }
 .work-scaled { display: block; }
-.work-frame { display: block; }
-.work-frame img { width: 100%; }
+.work-frame { display: block; text-align: center; }
+.work-frame img { display: inline-block; width: auto; max-width: 100%; max-height: 72vh; }
 
 .work-label {
   margin-top: var(--s3); padding-top: var(--s2);
@@ -324,8 +330,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .g-ink .status-sold { color: #CB6A5E; }
 .g-ink .status-sold::before { background: #CB6A5E; }
 
-.works-flow { display: flex; flex-wrap: wrap; gap: var(--s7) var(--s6); align-items: flex-end; }
-.works-flow .work { flex: 0 1 auto; max-width: 100%; }
 
 /* ---------- exhibitions ---------- */
 
@@ -367,7 +371,19 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- work page ---------- */
 
 .wp { padding-top: calc(var(--band) + 44px); }
-.wp-back { display: inline-block; margin-bottom: var(--s5); }
+/* Was a bare line of small mono text and went unnoticed. Now a bordered
+   target, sized past the 44px touch minimum, so it reads as something to
+   press rather than a caption. */
+.wp-back {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  margin-bottom: var(--s5);
+  padding: var(--s2) var(--s3);
+  min-height: 44px;
+  border: 1px solid currentColor;
+  transition: background .22s, color .22s, border-color .22s;
+}
+.wp-back:hover { background: var(--ochre); color: var(--paper); border-color: var(--ochre); }
+.g-ink .wp-back:hover { color: var(--ink); }
 .wp-lead { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--s6); align-items: start; }
 .wp-facts { margin: var(--s4) 0 0; border-top: 1px solid rgba(16,16,16,.16); }
 .wp-fact { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: var(--s3); padding-block: var(--s2); border-bottom: 1px solid rgba(16,16,16,.12); }

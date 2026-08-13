@@ -65,7 +65,14 @@ const schema = {
     <div class="wrap">
       {/* The section's own page, not the front page's anchor — that shows only
           the first few, so it is not where the reader was. */}
-      <a class="wp-back data accent" href={`/${work.section}/`}>Back to {sectionLabel}</a>
+      {/* href is the section's own page: it always resolves, it is
+          deep-linkable, and it is where someone who arrived cold should land.
+          A reader who came from elsewhere on the site gets sent back to that
+          page instead — see the handler in Base.astro, which relabels the
+          link so it never promises a destination it will not go to. */}
+      <a class="wp-back data accent" href={`/${work.section}/`} data-back>
+        <span data-back-label>Back to {sectionLabel}</span>
+      </a>
 
       <div class="wp-lead">
         <figure style="margin:0" class="rv">

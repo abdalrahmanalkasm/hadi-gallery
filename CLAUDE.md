@@ -71,10 +71,14 @@ the email enquiry.
   page for the rest — a real page rather than a "show more" toggle, so each
   section has a URL that can be sent on its own, the back button keeps its
   ordinary meaning, and no JavaScript is involved.
-- Client JavaScript is limited to four things, all in `src/layouts/Base.astro`:
+- Client JavaScript is limited to five things, all in `src/layouts/Base.astro`:
   mobile menu toggle, `IntersectionObserver` scroll reveal, exhibition accordion,
-  and the work-page lightbox. If a new feature needs more JS than that, raise it
-  before writing it.
+  the work-page lightbox, and the back link's history step. If a new feature
+  needs more JS than that, raise it before writing it.
+- The back link on a work page has a real `href` to the section's own page, so
+  it works with no JavaScript and for a reader arriving cold. When the referrer
+  is same-origin it steps back through history instead and **relabels itself to
+  "Back"** — the label must never name a destination the link will not go to.
 
 ## Content model
 

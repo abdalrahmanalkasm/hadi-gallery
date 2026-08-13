@@ -98,6 +98,22 @@ const shareImage = new URL(image ?? '/og.jpg', Astro.site ?? Astro.url).href;
       items.forEach((el) => io.observe(el));
     }
 
+    // "Back" should mean back. The link's href is the section's own page,
+    // which is right for someone arriving cold and keeps the page working
+    // with no JavaScript — but a reader who came from the front page expects
+    // to land there again, not on a list they never saw. When the previous
+    // page was somewhere on this site, step back through history instead, and
+    // relabel the link so it never names a destination it will not go to.
+    const back = document.querySelector('[data-back]');
+    if (back && document.referrer) {
+      let sameSite = false;
+      try { sameSite = new URL(document.referrer).origin === location.origin; } catch {}
+      if (sameSite && history.length > 1) {
+        back.querySelector('[data-back-label]').textContent = 'Back';
+        back.addEventListener('click', (e) => { e.preventDefault(); history.back(); });
+      }
+    }
+
     // Full-size view. The <dialog> supplies Esc, the focus trap, and returning
     // focus to the button that opened it. Zoom scales the image inside a
     // scrolling box, so panning is the browser's own scrolling and a phone's
