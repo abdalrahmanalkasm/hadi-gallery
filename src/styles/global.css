@@ -382,6 +382,21 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .wp-nav { margin-top: var(--s7); padding-top: var(--s4); border-top: 1px solid rgba(16,16,16,.16); display: flex; justify-content: space-between; gap: var(--s3); flex-wrap: wrap; }
 @media (max-width: 840px) { .wp-lead { grid-template-columns: 1fr; } }
 
+/* ---------- installed ----------
+   Two up, so a room photograph is large enough to read the work on the wall,
+   and one column on a phone. Images keep their own proportions — these are
+   rooms, and cropping them to a shared shape would throw away the scale that
+   is the whole reason they are here. */
+
+.installed { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5) var(--s4); align-items: start; }
+/* <figure> carries a 40px side margin by default, which ate 80px of a 334px
+   column on a phone. Elsewhere the codebase zeroes this inline; here it
+   belongs in the rule. */
+.installed figure { margin: 0; }
+.installed img { width: 100%; }
+.installed figcaption { margin-top: var(--s2); }
+@media (max-width: 700px) { .installed { grid-template-columns: 1fr; gap: var(--s5); } }
+
 /* ---------- lightbox ----------
    A <dialog> rather than a hand-built overlay: Esc, the focus trap, and
    returning focus to the image afterwards all come from the element itself.

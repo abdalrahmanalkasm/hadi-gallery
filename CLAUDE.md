@@ -127,9 +127,18 @@ Paintings    paper
 Prints       ink
 Studies      ochre-pale
 Portraits    ochre
+Installed    ink
 Exhibitions  paper
 Footer       ink
 ```
+
+`Installed` is not a works section — it is photographs of the work hung and
+framed in the interior it was placed in, which answers a question the
+catalogue cannot: whether the work is actually collected and lived with. It
+takes `ink` because ochre sits above it and paper below. It renders only if
+`site.json` has an `installed` array, so emptying that array removes the
+section cleanly. Captions carry only what is known; a shot with no confirmed
+venue shows no venue, in line with the empty-state rule in `design-brief.md`.
 
 `Portraits` was added after launch planning, at the client's request. It sits
 last of the work sections so that no existing section's ground had to move, and

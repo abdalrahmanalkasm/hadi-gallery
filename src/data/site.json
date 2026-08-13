@@ -23,6 +23,13 @@
     "instagram": "https://instagram.com/hadi_art.8.1",
     "instagramHandle": "@hadi_art.8.1"
   },
+  "_installedComment": "Photographs of the work hung and framed in the interior it was placed in. Captions carry only what is known — add a location to each once the venue is confirmed, and leave it out until then rather than inventing one.",
+  "installed": [
+    { "image": "installed-1.jpg", "caption": "", "alt": "Five works hung together in the lounge" },
+    { "image": "installed-2.jpg", "caption": "", "alt": "The same wall seen closer, five framed works" },
+    { "image": "installed-3.jpg", "caption": "", "alt": "Virgin and Child with Angels, hung and framed" },
+    { "image": "installed-4.jpg", "caption": "", "alt": "The lounge, with the works along the far wall" }
+  ],
   "exhibitions": [
     {
       "title": "Between Two Lines",

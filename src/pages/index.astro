@@ -155,6 +155,29 @@ const schema = {
     </div>
   </section>
 
+  {/* INSTALLED — not a works section. These photographs answer a question the
+      catalogue cannot: whether the work is actually placed, framed and lived
+      with. Deliberately short, and it takes the ink ground because ochre sits
+      above it and paper below. */}
+  {site.installed?.length > 0 && (
+    <section class="band g-ink" id="installed">
+      <div class="wrap">
+        <div class="opener rv">
+          <span class="data">In place</span>
+          <h2 class="t-section">The work hung</h2>
+        </div>
+        <div class="installed">
+          {site.installed.map((shot) => (
+            <figure class="rv">
+              <img src={`/images/${shot.image}`} alt={shot.alt} loading="lazy" />
+              {shot.caption && <figcaption class="data quiet">{shot.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- EXHIBITIONS -->
   <section class="band g-paper" id="exhibitions">
     <div class="wrap">
