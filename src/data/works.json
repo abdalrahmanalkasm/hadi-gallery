@@ -228,13 +228,13 @@
     {
       "slug": "painting-12",
       "cat": "12",
-      "title": "Untitled",
-      "year": 2024,
+      "title": "The Last Smoke",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "70 × 100 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-12.jpg",
       "details": [
         "painting-12-d1.jpg",
@@ -242,23 +242,18 @@
         "painting-12-d3.jpg",
         "painting-12-d4.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "year",
-        "status"
-      ]
+      "note": ""
     },
     {
       "slug": "painting-13",
       "cat": "13",
-      "title": "Untitled",
+      "title": "Between Two Worlds",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "220 × 224 cm",
-      "status": "nfs",
+      "status": "available",
       "image": "painting-13.jpg",
       "details": [
         "painting-13-d1.jpg",
@@ -272,64 +267,53 @@
         "painting-13-d9.jpg"
       ],
       "note": "",
-      "_pending": [
-        "title",
-        "status"
-      ]
+      "priceUsd": 2500
     },
     {
       "slug": "painting-14",
       "cat": "14",
-      "title": "Untitled",
+      "title": "Two",
       "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "50 × 35 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-14.jpg",
       "details": [
         "painting-14-d1.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "status"
-      ]
+      "note": ""
     },
     {
       "slug": "painting-15",
       "cat": "15",
-      "title": "Untitled",
-      "year": 2026,
+      "title": "What Remains",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "70 × 100 cm",
-      "status": "nfs",
+      "status": "available",
       "image": "painting-15.jpg",
       "details": [
         "painting-15-d1.jpg",
         "painting-15-d2.jpg",
         "painting-15-d3.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "year",
-        "status"
-      ]
+      "note": "Self-portrait.",
+      "priceUsd": 900
     },
     {
       "slug": "painting-16",
       "cat": "16",
-      "title": "Untitled",
+      "title": "Virgin and Child with Angels",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "85 × 180 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-16.jpg",
       "details": [
         "painting-16-d1.jpg",
@@ -337,23 +321,18 @@
         "painting-16-d3.jpg",
         "painting-16-d4.jpg"
       ],
-      "note": "",
-      "_pending": [
-        "title",
-        "year",
-        "status"
-      ]
+      "note": "A study after the original painting."
     },
     {
       "slug": "painting-17",
       "cat": "17",
-      "title": "Untitled",
-      "year": 2024,
+      "title": "The Shape of Time",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "100 × 140 cm",
-      "status": "nfs",
+      "status": "available",
       "image": "painting-17.jpg",
       "details": [
         "painting-17-d1.jpg",
@@ -363,22 +342,18 @@
         "painting-17-d5.jpg"
       ],
       "note": "",
-      "_pending": [
-        "title",
-        "year",
-        "status"
-      ]
+      "priceUsd": 900
     },
     {
       "slug": "painting-18",
       "cat": "18",
-      "title": "Untitled",
-      "year": 2024,
+      "title": "An Old Man",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "70 × 100 cm",
-      "status": "nfs",
+      "status": "available",
       "image": "painting-18.jpg",
       "details": [
         "painting-18-d1.jpg",
@@ -388,53 +363,43 @@
         "painting-18-d5.jpg"
       ],
       "note": "",
-      "_pending": [
-        "title",
-        "year",
-        "status"
-      ]
+      "priceUsd": 700
     },
     {
       "slug": "painting-19",
       "cat": "19",
-      "title": "Untitled",
-      "year": 2024,
+      "title": "The Reader",
+      "year": 2023,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "70 × 100 cm",
-      "status": "nfs",
+      "status": "available",
       "image": "painting-19.jpg",
       "details": [
         "painting-19-d1.jpg",
         "painting-19-d2.jpg"
       ],
       "note": "",
-      "_pending": [
-        "title",
-        "year",
-        "status"
-      ]
+      "priceUsd": 700
     },
     {
       "slug": "painting-20",
       "cat": "20",
       "title": "Untitled",
-      "year": 2023,
+      "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "180 × 150 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-20.jpg",
       "details": [
         "painting-20-d1.jpg"
       ],
-      "note": "",
+      "note": "A study after the original painting.",
       "_pending": [
-        "title",
-        "year",
-        "status"
+        "title"
       ]
     },
     {
@@ -446,14 +411,12 @@
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "50 × 50 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-21.jpg",
       "details": [],
-      "note": "",
+      "note": "A study after the original by Rembrandt van Rijn.",
       "_pending": [
-        "title",
-        "year",
-        "status"
+        "title"
       ]
     },
     {
@@ -465,14 +428,12 @@
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "42 × 56 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-22.jpg",
       "details": [],
-      "note": "",
+      "note": "A study after the original painting.",
       "_pending": [
-        "title",
-        "year",
-        "status"
+        "title"
       ]
     },
     {
@@ -484,14 +445,12 @@
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "45 × 65 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-23.jpg",
       "details": [],
-      "note": "",
+      "note": "A study after the original painting.",
       "_pending": [
-        "title",
-        "year",
-        "status"
+        "title"
       ]
     },
     {
@@ -503,52 +462,41 @@
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "56 × 42 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-24.jpg",
       "details": [],
-      "note": "",
+      "note": "A study after the original painting.",
       "_pending": [
-        "title",
-        "year",
-        "status"
+        "title"
       ]
     },
     {
       "slug": "painting-25",
       "cat": "25",
-      "title": "Untitled",
+      "title": "The Stranger",
       "year": 2024,
       "section": "paintings",
       "medium": "Oil on canvas",
       "code": "OIL/CNV",
       "dimensions": "52 × 72 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-25.jpg",
       "details": [],
-      "note": "",
-      "_pending": [
-        "title",
-        "year",
-        "status"
-      ]
+      "note": ""
     },
     {
       "slug": "painting-26",
       "cat": "26",
-      "title": "Untitled",
+      "title": "The Light",
       "year": 2021,
       "section": "paintings",
-      "medium": "Oil on canvas",
-      "code": "OIL/CNV",
+      "medium": "Oil on wood",
+      "code": "OIL/WD",
       "dimensions": "10 × 25 cm",
-      "status": "nfs",
+      "status": "sold",
       "image": "painting-26.jpg",
       "details": [],
-      "note": "",
-      "_pending": [
-        "title",
-        "status"
-      ]
+      "note": ""
     },
     {
       "slug": "etching-01",
