@@ -276,44 +276,89 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (max-width: 840px) { .about { grid-template-columns: 1fr; } }
 
 /* ---------- works ----------
-   One column, stacked down the page, nothing cropped — a painting trimmed to
-   fit is a different painting.
+   A catalogue row: the work on the left, its label on the right.
 
-   Each work is bounded on both axes: 820px across, and 72vh tall. Width alone
-   was not enough. A portrait canvas at 820px wide runs past 1,100px tall, so
-   on an ordinary screen the reader met the top half of a painting and had to
-   scroll to find out what the rest of it was — it read as cut off. Capping the
-   height instead means a tall work simply draws narrower and is seen whole.
-   72vh leaves the label in view beneath it, so the work and what it is are
-   read together rather than one after the other. */
+   The proportions are the project's own. The spacing scale
+   (4 8 16 24 40 64 104 168) is a Fibonacci run from 8 onward — each step is
+   the sum of the two before it — so consecutive steps sit in the golden ratio.
+   Continuing it past 168 gives 272, 440, 712, and those are the three numbers
+   this layout is built from:
+
+     label   272   (--work-label)
+     work    440   (--work-plate)   440 / 272 = 1.618
+     height  712   (--work-plate-h) 712 / 440 = 1.618
+
+   So the plate is a golden rectangle standing upright, which is the right
+   shape for this collection: of the 26 works with confirmed dimensions the
+   median is 0.77 and 18 are taller than they are wide. A work fills the
+   plate's width and is capped by its height, never cropped — the widest work
+   here (1.51) and the narrowest (0.40) both sit inside 440 x 712.
+
+   Two fixed columns mean two vertical axes that hold all the way down the
+   page. Sizing each row to its own image, as before, made every row a
+   different width and the page read as a stack of unrelated blocks. */
+
+:root {
+  --work-label:   272px;
+  --work-plate:   440px;
+  --work-plate-h: 712px;
+}
 
 .works,
 .works-flow {
   display: flex;
   flex-direction: column;
   gap: var(--s7);
-  max-width: 820px;
+  width: fit-content;
+  max-width: 100%;
   margin-inline: auto;
 }
-/* The block shrinks to the image and the label follows it, so a work is one
-   aligned unit — image and label sharing both edges — rather than a narrow
-   picture floating in a wide column above a label that starts somewhere else.
-   `width: fit-content` alone would let a long title stretch the block wider
-   than the image, so the label is held to the block's width instead of
-   contributing to it: `width: 0` removes it from the intrinsic measurement,
-   `min-width: 100%` gives it the block's width back once that is settled.
-   The floor keeps a very narrow work from squeezing its label unreadably. */
-.work-scaled { display: block; width: fit-content; max-width: 100%; min-width: min(100%, 340px); margin-inline: auto; }
-.work-frame { display: block; }
-.work-frame img { display: block; width: auto; max-width: 100%; max-height: 72vh; }
-.work-label { width: 0; min-width: 100%; }
-
-.work-label {
-  margin-top: var(--s3); padding-top: var(--s2);
-  border-top: 1px solid rgba(16, 16, 16, 0.18);
+.work-scaled {
+  display: grid;
+  grid-template-columns: var(--work-plate) var(--work-label);
+  gap: var(--s5);
+  align-items: start;
 }
-.g-ink .work-label { border-top-color: rgba(239, 235, 227, 0.22); }
-.g-pale .work-label { border-top-color: rgba(36, 27, 13, 0.2); }
+/* The work first, then what it is: the reader looks before they read. */
+.work-frame { grid-column: 1; grid-row: 1; }
+.work-frame img {
+  display: block; margin-inline: auto;
+  width: auto; max-width: 100%;
+  /* min() so a short screen still shows the whole work rather than clipping
+     the derived height. */
+  max-height: min(var(--work-plate-h), 72vh);
+}
+.work-label { grid-column: 2; grid-row: 1; }
+
+/* Below the point where plate + label no longer fit side by side, stack them
+   and let the work take the full measure. The label beside it would leave
+   neither enough room to be worth reading. */
+@media (max-width: 800px) {
+  .works,
+  .works-flow { width: auto; }
+  .work-scaled { grid-template-columns: 1fr; gap: 0; }
+  .work-frame { grid-column: 1; grid-row: 1; }
+  .work-label { grid-column: 1; grid-row: 2; }
+}
+
+/* The rule sits above the label when it is stacked under the work, and beside
+   it when the two are side by side — in both cases it marks the edge the
+   label begins at, which is what makes the column read as a column. */
+.work-label {
+  padding-left: var(--s3);
+  border-left: 1px solid rgba(16, 16, 16, 0.18);
+}
+@media (max-width: 760px) {
+  .work-label {
+    margin-top: var(--s3); padding-top: var(--s2);
+    padding-left: 0; border-left: 0;
+    border-top: 1px solid rgba(16, 16, 16, 0.18);
+  }
+  .g-ink .work-label { border-top-color: rgba(239, 235, 227, 0.22); }
+  .g-pale .work-label { border-top-color: rgba(36, 27, 13, 0.2); }
+}
+.g-ink .work-label { border-left-color: rgba(239, 235, 227, 0.22); }
+.g-pale .work-label { border-left-color: rgba(36, 27, 13, 0.2); }
 .work-label .t-title { margin-bottom: var(--s1); }
 .work-line { margin-top: var(--s1); }
 .work-more { display: inline-block; margin-top: var(--s3); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
