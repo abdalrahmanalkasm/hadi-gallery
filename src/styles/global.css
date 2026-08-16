@@ -321,6 +321,27 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 /* The work first, then what it is: the reader looks before they read. */
 .work-frame { grid-column: 1; grid-row: 1; }
+/* Every second row turns over — label left, work right. The two columns keep
+   their widths, so the block's outer edges are identical on every row and only
+   the order inside changes. Works arrive at whatever size they are, and a
+   single fixed order leaves that variation looking accidental; alternating
+   makes the page read as a rhythm the layout intended, the way a catalogue
+   sets facing plates. */
+.works .work:nth-child(even) .work-scaled,
+.works-flow .work:nth-child(even) .work-scaled {
+  grid-template-columns: var(--work-label) var(--work-plate);
+}
+.works .work:nth-child(even) .work-frame,
+.works-flow .work:nth-child(even) .work-frame { grid-column: 2; }
+.works .work:nth-child(even) .work-label,
+.works-flow .work:nth-child(even) .work-label {
+  grid-column: 1;
+  padding-left: 0; padding-right: var(--s3);
+  border-left: 0; border-right: 1px solid rgba(16, 16, 16, 0.18);
+  text-align: right;
+}
+.g-ink .work:nth-child(even) .work-label { border-right-color: rgba(239, 235, 227, 0.22); }
+.g-pale .work:nth-child(even) .work-label { border-right-color: rgba(36, 27, 13, 0.2); }
 .work-frame img {
   display: block; margin-inline: auto;
   width: auto; max-width: 100%;
@@ -333,12 +354,26 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* Below the point where plate + label no longer fit side by side, stack them
    and let the work take the full measure. The label beside it would leave
    neither enough room to be worth reading. */
+/* These repeat the alternating rules' `.works .work:nth-child(even)` prefix on
+   purpose. That selector is four classes deep; a shorter one here would lose
+   to it even inside the media query, which is exactly what left half the
+   labels still right-aligned on a phone. */
 @media (max-width: 800px) {
   .works,
   .works-flow { width: auto; }
-  .work-scaled { grid-template-columns: 1fr; gap: 0; }
-  .work-frame { grid-column: 1; grid-row: 1; }
-  .work-label { grid-column: 1; grid-row: 2; }
+  .work-scaled,
+  .works .work:nth-child(even) .work-scaled,
+  .works-flow .work:nth-child(even) .work-scaled { grid-template-columns: 1fr; gap: 0; }
+  .work-frame,
+  .works .work:nth-child(even) .work-frame,
+  .works-flow .work:nth-child(even) .work-frame { grid-column: 1; grid-row: 1; }
+  .work-label,
+  .works .work:nth-child(even) .work-label,
+  .works-flow .work:nth-child(even) .work-label {
+    grid-column: 1; grid-row: 2;
+    text-align: left;
+    padding-right: 0; border-right: 0;
+  }
 }
 
 /* The rule sits above the label when it is stacked under the work, and beside
