@@ -98,7 +98,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 :focus-visible { outline: 2px solid var(--ochre); outline-offset: 4px; }
 
 .skip { position: absolute; left: -9999px; }
-.skip:focus { left: var(--s2); top: var(--s2); z-index: 200; background: var(--paper); color: var(--ink); padding: var(--s2) var(--s3); }
+.skip:focus { left: var(--s2); top: var(--s2); z-index: 200; background: var(--paper); color: var(--ink); padding: var(--s2) var(--s3); display: inline-flex; align-items: center; min-height: 44px; }
 
 /* ---------- ground ---------- */
 
@@ -199,7 +199,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   backdrop-filter: blur(12px);
   color: var(--on-ink);
 }
-.nav-brand { font-size: var(--t-m); font-weight: 500; letter-spacing: -0.01em; }
+/* The home link. Negative margin keeps the taller target from pushing the bar
+   open, the same trick the menu button uses. */
+.nav-brand { display: inline-flex; align-items: center; min-height: 44px; margin-block: -9px; font-size: var(--t-m); font-weight: 500; letter-spacing: -0.01em; }
 .nav-list { display: flex; gap: var(--s4); }
 .nav-list a {
   font-family: var(--data);
@@ -265,7 +267,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .about img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .about-statement { font-size: clamp(1.35rem, 2.6vw, 1.95rem); line-height: 1.42; letter-spacing: -0.018em; margin: 0 0 var(--s5); max-width: 24ch; }
 .cta {
-  display: inline-block; margin-top: var(--s5);
+  display: inline-flex; align-items: center; min-height: 44px;
+  margin-top: var(--s5);
   padding: var(--s2) var(--s3);
   border: 1px solid currentColor;
   font-family: var(--data); font-size: var(--t-xs);
@@ -364,36 +367,48 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .work-scaled,
   .works .work:nth-child(even) .work-scaled,
   .works-flow .work:nth-child(even) .work-scaled { grid-template-columns: 1fr; gap: 0; }
+  /* Label above the work when stacked. Beside it, the work leads because the
+     eye reaches it first anyway; stacked, a title under an image reads as a
+     caption for something already scrolled past, and on a phone the label is
+     often all that is on screen when the next work begins. */
   .work-frame,
   .works .work:nth-child(even) .work-frame,
-  .works-flow .work:nth-child(even) .work-frame { grid-column: 1; grid-row: 1; }
+  .works-flow .work:nth-child(even) .work-frame { grid-column: 1; grid-row: 2; }
   .work-label,
   .works .work:nth-child(even) .work-label,
   .works-flow .work:nth-child(even) .work-label {
-    grid-column: 1; grid-row: 2;
+    grid-column: 1; grid-row: 1;
     text-align: left;
     padding-right: 0; border-right: 0;
+    margin-top: 0; margin-bottom: var(--s3);
   }
 }
 
-/* The rule sits above the label when it is stacked under the work, and beside
-   it when the two are side by side — in both cases it marks the edge the
-   label begins at, which is what makes the column read as a column. */
+/* The rule hangs on whichever edge faces the work: the left when the label
+   sits to its right, the right when they swap, the bottom when the label is
+   stacked above it. In every case it is the seam between the two. */
 .work-label {
   padding-left: var(--s3);
   border-left: 1px solid rgba(16, 16, 16, 0.18);
 }
-@media (max-width: 760px) {
-  .work-label {
-    margin-top: var(--s3); padding-top: var(--s2);
-    padding-left: 0; border-left: 0;
-    border-top: 1px solid rgba(16, 16, 16, 0.18);
-  }
-  .g-ink .work-label { border-top-color: rgba(239, 235, 227, 0.22); }
-  .g-pale .work-label { border-top-color: rgba(36, 27, 13, 0.2); }
-}
 .g-ink .work-label { border-left-color: rgba(239, 235, 227, 0.22); }
 .g-pale .work-label { border-left-color: rgba(36, 27, 13, 0.2); }
+
+/* Same 800px as the stacking rules above. This block used to break at 760,
+   so between 760 and 800 the label was already stacked but still styled as a
+   side column — indented, with a rule down its left edge and nothing beside
+   it. One breakpoint, declared once. */
+@media (max-width: 800px) {
+  .work-label,
+  .works .work:nth-child(even) .work-label,
+  .works-flow .work:nth-child(even) .work-label {
+    padding-left: 0; padding-bottom: var(--s2);
+    border-left: 0;
+    border-bottom: 1px solid rgba(16, 16, 16, 0.18);
+  }
+  .g-ink .work-label { border-bottom-color: rgba(239, 235, 227, 0.22); }
+  .g-pale .work-label { border-bottom-color: rgba(36, 27, 13, 0.2); }
+}
 .work-label .t-title { margin-bottom: var(--s1); }
 .work-line { margin-top: var(--s1); }
 .work-more { display: inline-block; margin-top: var(--s3); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
@@ -450,11 +465,20 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- footer ---------- */
 
 .foot-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--s6); align-items: end; }
-.foot-mail { font-size: clamp(1.4rem, 4vw, 2.6rem); font-weight: 500; letter-spacing: -0.022em; color: #F7F4EE; border-bottom: 1px solid var(--ochre); padding-bottom: var(--s1); word-break: break-word; display: inline-block; }
-.foot-links { display: flex; flex-direction: column; gap: var(--s2); }
-.foot-links a { align-self: flex-start; border-bottom: 1px solid transparent; color: var(--on-ink-quiet); }
+.foot-mail { font-size: clamp(1.4rem, 4vw, 2.6rem); font-weight: 500; letter-spacing: -0.022em; color: #F7F4EE; border-bottom: 1px solid var(--ochre); padding-bottom: var(--s2); word-break: break-word; display: inline-block; min-height: 44px; }
+/* These were 23px tall — half the 44px touch minimum, in the one section
+   whose whole job is to be acted on. The text keeps its size; the target is
+   padded out around it, and the gap absorbs the extra so the list does not
+   loosen. */
+.foot-links { display: flex; flex-direction: column; gap: 0; }
+.foot-links a {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; min-height: 44px;
+  border-bottom: 1px solid transparent; color: var(--on-ink-quiet);
+}
 .foot-links a:hover { color: var(--ochre); border-bottom-color: var(--ochre); }
-.foot-base { margin-top: var(--s6); padding-top: var(--s4); border-top: 1px solid rgba(239,235,227,.16); display: flex; justify-content: space-between; gap: var(--s3); flex-wrap: wrap; }
+.foot-base { margin-top: var(--s6); padding-top: var(--s4); border-top: 1px solid rgba(239,235,227,.16); display: flex; justify-content: space-between; align-items: center; gap: var(--s3); flex-wrap: wrap; }
+.foot-base a { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; align-items: start; } }
 
 /* ---------- work page ---------- */
@@ -484,7 +508,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
    a single detail stretched that one image across the whole row. */
 .wp-details-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--s3); }
 .wp-details-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
-.wp-nav { margin-top: var(--s7); padding-top: var(--s4); border-top: 1px solid rgba(16,16,16,.16); display: flex; justify-content: space-between; gap: var(--s3); flex-wrap: wrap; }
+.wp-nav { margin-top: var(--s7); padding-top: var(--s4); border-top: 1px solid rgba(16,16,16,.16); display: flex; justify-content: space-between; align-items: center; gap: var(--s3); flex-wrap: wrap; }
+/* Previous and next work — the main way through the catalogue once you are
+   inside it, and they were 22px tall. */
+.wp-nav a { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 840px) { .wp-lead { grid-template-columns: 1fr; } }
 
 /* ---------- lightbox ----------

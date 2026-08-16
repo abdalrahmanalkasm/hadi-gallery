@@ -1,12 +1,15 @@
 ---
 /**
- * One work in the grid: image, then museum label.
+ * One work: the plate and its museum label, laid out by `.work-scaled`.
  *
- * Every cell is the same width and the image is contained, never cropped —
- * a painting cut to fit a tile is a different painting. Works are no longer
- * drawn at relative scale; the real dimensions are stated in the label.
+ * `headingLevel` exists because this component sits at two different depths.
+ * On the front page each section has an h2, so a work title is an h3. On a
+ * section's own page that section heading is the h1, so a work title must be
+ * an h2 — hard-coding h3 there skipped a level, and skipped levels are how a
+ * screen reader user loses the shape of a page they navigate by headings.
  */
-const { work, eager = false } = Astro.props;
+const { work, eager = false, headingLevel = 3 } = Astro.props;
+const Heading = `h${headingLevel}`;
 ---
 <article class="work rv">
   <a class="work-scaled" href={`/works/${work.slug}/`}>
@@ -19,7 +22,7 @@ const { work, eager = false } = Astro.props;
       />
     </span>
     <div class="work-label">
-      <h3 class="t-title">{work.title}</h3>
+      <Heading class="t-title">{work.title}</Heading>
       <p class="t-small quiet work-line">
         {work.medium}, {work.dimensions}<br />
         {work.year}{work.edition ? `, ${work.edition}` : ''}

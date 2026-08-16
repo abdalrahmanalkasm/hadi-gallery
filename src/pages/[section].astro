@@ -55,7 +55,8 @@ const { section, works, prev, next } = Astro.props;
       </div>
 
       <div class="works">
-        {works.map((w, i) => <Work work={w} eager={i === 0} />)}
+        {/* The section heading here is the h1, so a work title is an h2. */}
+        {works.map((w, i) => <Work work={w} eager={i === 0} headingLevel={2} />)}
       </div>
 
       <nav class="wp-nav t-small">
